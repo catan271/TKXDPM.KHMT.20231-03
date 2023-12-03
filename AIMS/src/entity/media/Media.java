@@ -28,6 +28,7 @@ public class Media {
     protected String type;
     protected String imageURL;
 
+    // content coupling with AIMSDB
     public Media() throws SQLException{
         stm = AIMSDB.getConnection().createStatement();
     }
@@ -49,6 +50,7 @@ public class Media {
         return updated_quantity;
     }
 
+    // content coupling with AIMSDB
     public Media getMediaById(int id) throws SQLException{
         String sql = "SELECT * FROM Media ;";
         Statement stm = AIMSDB.getConnection().createStatement();
@@ -67,6 +69,7 @@ public class Media {
         return null;
     }
 
+    // content coupling with AIMSDB
     public List getAllMedia() throws SQLException{
         Statement stm = AIMSDB.getConnection().createStatement();
         ResultSet res = stm.executeQuery("select * from Media");
@@ -85,6 +88,7 @@ public class Media {
         return medium;
     }
 
+    // content coupling with AIMSDB
     public void updateMediaFieldById(String tbname, int id, String field, Object value) throws SQLException {
         Statement stm = AIMSDB.getConnection().createStatement();
         if (value instanceof String){

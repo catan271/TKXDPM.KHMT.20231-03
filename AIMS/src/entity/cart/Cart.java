@@ -7,8 +7,7 @@ import java.util.List;
 import common.exception.MediaNotAvailableException;
 import entity.media.Media;
 
-public class Cart {
-    
+public class Cart {   
     private List<CartMedia> lstCartMedia;
     private static Cart cartInstance;
 
@@ -21,10 +20,12 @@ public class Cart {
         lstCartMedia = new ArrayList<>();
     }
 
+    // content coupling
     public void addCartMedia(CartMedia cm){
         lstCartMedia.add(cm);
     }
 
+    // content coupling
     public void removeCartMedia(CartMedia cm){
         lstCartMedia.remove(cm);
     }
@@ -33,6 +34,7 @@ public class Cart {
         return lstCartMedia;
     }
 
+    // content coupling
     public void emptyCart(){
         lstCartMedia.clear();
     }
@@ -66,6 +68,7 @@ public class Cart {
         if (!allAvai) throw new MediaNotAvailableException("Some media not available");
     }
 
+    // stamp coupling
     public CartMedia checkMediaInCart(Media media){
         for (CartMedia cartMedia : lstCartMedia) {
             if (cartMedia.getMedia().getId() == media.getId()) return cartMedia;

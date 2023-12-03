@@ -20,10 +20,10 @@ import views.screen.popup.PopupScreen;
  * @author nguyenlm
  */
 public class PlaceOrderController extends BaseController{
-
     /**
      * Just for logging purpose
      */
+    // common coupling
     private static Logger LOGGER = utils.Utils.getLogger(PlaceOrderController.class.getName());
 
     /**
