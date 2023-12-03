@@ -89,7 +89,7 @@ The recommended report structure will have a format as follows:
 
 - Assigned tasks:
 
-  - Task 1: Detect controller in package controller
+  - Task 1: Find coupling in controller package and entity package
 
 - Implementation details:
   - Pull Request(s): [Attach links to your pull requests here. You can attach multiple pull requests]()
