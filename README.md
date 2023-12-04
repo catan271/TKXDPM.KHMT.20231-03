@@ -87,11 +87,13 @@ The recommended report structure will have a format as follows:
 
 <details>
 <summary>Trần Đức Cảnh</summary>
-<br>
+    
 -   Assigned tasks:
+  
     -   Task 1: Find coupling in controller package and entity package
 
 -   Implementation details:
+  
     -   Pull Request(s): [https://github.com/catan271/TKXDPM.KHMT.20231-03/pull/2]()
 
 </details>
@@ -119,6 +121,11 @@ The recommended report structure will have a format as follows:
 
 -   Assigned tasks:
     -   Task 1: Find coupling in controller package and entity package
+ 
+-   Implementation details:
+    -   Pull Request(s): [https://github.com/catan271/TKXDPM.KHMT.20231-03/pull/3]()
+    -   Specific implementation details:
+        -   Describe specific in detail what you did last week   
 
 </details>
 </details>
