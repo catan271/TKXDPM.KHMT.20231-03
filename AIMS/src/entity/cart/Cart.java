@@ -9,6 +9,7 @@ import entity.media.Media;
 
 public class Cart {
     
+    // common coupling
     private List<CartMedia> lstCartMedia;
     private static Cart cartInstance;
 
@@ -56,6 +57,7 @@ public class Cart {
     }
 
     public void checkAvailabilityOfProduct() throws SQLException{
+        // control coupling
         boolean allAvai = true;
         for (Object object : lstCartMedia) {
             CartMedia cartMedia = (CartMedia) object;

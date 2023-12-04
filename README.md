@@ -1,4 +1,5 @@
 # TKXDPM.VN.20231-01
+
 Template for managing Capstone's project in the Software Design and Construction course in the 2023.1 semester.
 
 ## Table of contents
@@ -16,11 +17,11 @@ Template for managing Capstone's project in the Software Design and Construction
 
 Before using this Github repository, everyone needs to register their group information using the table below:
 
-| Name           | Role        |
-| :------------- | :---------- |
-| Lê Thanh Giang | Team Leader |
-| Nguyễn Văn A   | Member      |
-| Nguyễn Văn B   | Member      |
+| Name            | Role        |
+| :-------------- | :---------- |
+| Trần Đức Cảnh   | Team Leader |
+| Lại Trọng Chiến | Member      |
+| Nguyễn Văn B    | Member      |
 
 ## What's included
 
@@ -44,6 +45,7 @@ The recommended report structure will have a format as follows:
 <br>
 
 - Assigned tasks:
+
   - Task 1
   - Task 2
   - ...
@@ -61,6 +63,7 @@ The recommended report structure will have a format as follows:
 <br>
 
 - Assigned tasks:
+
   - Task 1
   - Task 2
   - ...
@@ -72,27 +75,24 @@ The recommended report structure will have a format as follows:
     - You can attach images if you want
 
 </details>
-
-
 
 </details>
 
 ---
 
 <details>
-  <summary>W2: 01/10/2023~08/10/2023 </summary>
+  <summary>W13: 27/11/2023~04/12/2023 </summary>
 <br>
 <details>
-<summary>Team Member 1</summary>
+<summary>Lại Trọng Chiến</summary>
 <br>
 
 - Assigned tasks:
-  - Task 1
-  - Task 2
-  - ...
+
+  - Task 1: Find coupling in controller package and entity package
 
 - Implementation details:
-  - Pull Request(s): [Attach links to your pull requests here. You can attach multiple pull requests]()
+  - Pull Request(s): [https://github.com/catan271/TKXDPM.KHMT.20231-03/pull/1]()
   - Specific implementation details:
     - Describe specific in detail what you did last week
     - You can attach images if you want
@@ -104,6 +104,7 @@ The recommended report structure will have a format as follows:
 <br>
 
 - Assigned tasks:
+
   - Task 1
   - Task 2
   - ...
@@ -139,6 +140,7 @@ The recommended report structure will have a format as follows:
 ## QA
 
 If you have questions, don't hesitate to ask me or start a conversation that everyone can follow.
+
 ## Creators
 
 **Lê Thanh Giang**

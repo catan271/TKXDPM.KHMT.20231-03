@@ -20,7 +20,7 @@ import views.screen.popup.PopupScreen;
  * @author nguyenlm
  */
 public class PlaceOrderController extends BaseController{
-
+    // common coupling
     /**
      * Just for logging purpose
      */

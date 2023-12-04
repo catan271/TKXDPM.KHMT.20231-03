@@ -23,6 +23,7 @@ import subsystem.InterbankSubsystem;
  */
 public class PaymentController extends BaseController {
 
+	// common coupling
 	/**
 	 * Represent the card used for payment
 	 */
@@ -44,7 +45,11 @@ public class PaymentController extends BaseController {
 	 * @throws InvalidCardException - if the string does not represent a valid date
 	 *                              in the expected format
 	 */
-	private String getExpirationDate(String date) throws InvalidCardException {
+
+	
+	private String getExpirationDate(String date) throws InvalidCardException { 
+		// content coupling
+		// common coupling with payOrder
 		String[] strs = date.split("/");
 		if (strs.length != 2) {
 			throw new InvalidCardException();
@@ -81,8 +86,10 @@ public class PaymentController extends BaseController {
 	 * @return {@link java.util.Map Map} represent the payment result with a
 	 *         message.
 	 */
+
 	public Map<String, String> payOrder(int amount, String contents, String cardNumber, String cardHolderName,
 			String expirationDate, String securityCode) {
+				// common coupling with get ExpirationDate 
 		Map<String, String> result = new Hashtable<String, String>();
 		result.put("RESULT", "PAYMENT FAILED!");
 		try {
