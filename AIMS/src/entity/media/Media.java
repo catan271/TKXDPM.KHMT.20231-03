@@ -85,8 +85,9 @@ public class Media {
         return medium;
     }
 
+
     public void updateMediaFieldById(String tbname, int id, String field, Object value) throws SQLException {
-        // content coupling
+        
         Statement stm = AIMSDB.getConnection().createStatement();
         if (value instanceof String){
             value = "\"" + value + "\"";

@@ -103,7 +103,6 @@ public class DVD extends Media {
 
     @Override
     public Media getMediaById(int id) throws SQLException {
-        // content coupling
         String sql = "SELECT * FROM "+
                      "aims.DVD " +
                      "INNER JOIN aims.Media " +
