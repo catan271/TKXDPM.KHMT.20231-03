@@ -132,6 +132,31 @@ The recommended report structure will have a format as follows:
 
 ---
 
+<details>
+  <summary>W14: 05/12/2023~11/12/2023 </summary>
+<br>
+
+<details>
+<summary>Lại Trọng Chiến</summary>
+<br>
+
+-   Assigned tasks:
+
+    -   Task 1: Detect cohesion in entity package
+
+-   Implementation details:
+    -   Pull Request(s): [https://github.com/catan271/TKXDPM.KHMT.20231-03/pull/4]()
+    -   Specific implementation details:
+        -   Describe specific in detail what you did last week
+        -   You can attach images if you want
+
+</details>
+
+
+</details>
+
+---
+
 ## Pull request template
 
 -   You are required to create a pull request according to these steps:
