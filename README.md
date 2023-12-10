@@ -152,6 +152,20 @@ The recommended report structure will have a format as follows:
 
 </details>
 
+<details>
+<summary>Trần Đức Cảnh</summary>
+<br>
+
+-   Assigned tasks:
+
+    -   Task 1: refactor source base
+    -   Task 2: Add VNPay payment method
+
+-   Implementation details:
+    -   Pull Request(s): [https://github.com/catan271/TKXDPM.KHMT.20231-03/pull/6]()
+
+</details>
+
 
 </details>
 
