@@ -2,6 +2,7 @@ package entity.invoice;
 
 import entity.order.Order;
 
+// Functional cohesion
 public class Invoice {
 
     private Order order;

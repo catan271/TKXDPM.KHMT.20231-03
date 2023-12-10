@@ -4,6 +4,8 @@ import entity.cart.Cart;
 import entity.cart.CartMedia;
 import entity.media.Media;
 
+// Funtional cohesion
+// Các phương thức get, set name, email, address, phone đều liên quan đến user
 public class User {
     
     private int id;

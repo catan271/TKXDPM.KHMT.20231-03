@@ -2,6 +2,9 @@ package entity.payment;
 
 import java.sql.Timestamp;
 
+// Functional cohesion
+/* Các thuộc tính như cardCode, owner, cvvCode, và 
+dateExpired đều liên quan chặt chẽ đến mục đích chính của lớp */
 public class CreditCard {
 	private String cardCode;
 	private String owner;

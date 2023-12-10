@@ -2,12 +2,14 @@ package entity.order;
 
 import entity.media.Media;
 
+// Functional cohesion
 public class OrderMedia {
     
     private Media media;
     private int price;
     private int quantity;
 
+    // stamp coupling
     public OrderMedia(Media media, int quantity, int price) {
         this.media = media;
         this.quantity = quantity;

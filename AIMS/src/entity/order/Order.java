@@ -6,6 +6,7 @@ import java.util.List;
 
 import utils.Configs;
 
+// Functional cohesion
 public class Order {
     
     private int shippingFees;

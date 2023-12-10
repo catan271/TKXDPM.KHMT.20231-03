@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
+// Functional cohesion
 public class CD extends Media {
 
     String artist;
