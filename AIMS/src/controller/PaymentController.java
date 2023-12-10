@@ -48,8 +48,6 @@ public class PaymentController extends BaseController {
 
 	
 	private String getExpirationDate(String date) throws InvalidCardException { 
-		// content coupling
-		// common coupling with payOrder
 		String[] strs = date.split("/");
 		if (strs.length != 2) {
 			throw new InvalidCardException();
@@ -106,7 +104,7 @@ public class PaymentController extends BaseController {
 		}
 		return result;
 	}
-
+	
 	public void emptyCart(){
         Cart.getCart().emptyCart();
     }

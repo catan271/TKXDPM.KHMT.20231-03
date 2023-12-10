@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
+// Functional cohesion
 public class CD extends Media {
 
     String artist;
@@ -70,7 +71,6 @@ public class CD extends Media {
 
     @Override
     public Media getMediaById(int id) throws SQLException {
-        // content coupling
         String sql = "SELECT * FROM "+
                      "aims.CD " +
                      "INNER JOIN aims.Media " +

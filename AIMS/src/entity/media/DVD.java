@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
+// Functional cohesion
 public class DVD extends Media {
 
     String discType;
@@ -101,9 +102,9 @@ public class DVD extends Media {
                 + releasedDate + "'" + ", filmType='" + filmType + "'" + "}";
     }
 
+    // communicational cohesion
     @Override
     public Media getMediaById(int id) throws SQLException {
-        // content coupling
         String sql = "SELECT * FROM "+
                      "aims.DVD " +
                      "INNER JOIN aims.Media " +

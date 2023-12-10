@@ -2,6 +2,9 @@ package entity.cart;
 
 import entity.media.Media;
 
+// Functional cohesion
+// Các phương thức getMedia, setMedia, getQuantity, setQuantity, getPrice, setPrice đều thực hiện 
+// các chức năng liên quan đến thuộc tính cụ thể của CartMedia
 public class CartMedia {
     
     private Media media;

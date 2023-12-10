@@ -1,5 +1,6 @@
 package entity.shipping;
 
+// Functional cohesion
 public class Shipment {
     
     public void validateDeliveryInfo(){

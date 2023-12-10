@@ -20,7 +20,6 @@ import views.screen.popup.PopupScreen;
  * @author nguyenlm
  */
 public class PlaceOrderController extends BaseController{
-    // common coupling
     /**
      * Just for logging purpose
      */
@@ -39,6 +38,8 @@ public class PlaceOrderController extends BaseController{
      * @return Order
      * @throws SQLException
      */
+
+    // data coupling
     public Order createOrder() throws SQLException{
         Order order = new Order();
         for (Object object : Cart.getCart().getListMedia()) {
@@ -103,6 +104,7 @@ public class PlaceOrderController extends BaseController{
      * @param order
      * @return shippingFee
      */
+    // stamp coupling
     public int calculateShippingFee(Order order){
         Random rand = new Random();
         int fees = (int)( ( (rand.nextFloat()*10)/100 ) * order.getAmount() );

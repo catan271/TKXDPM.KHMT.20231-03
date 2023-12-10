@@ -7,9 +7,9 @@ import java.util.List;
 import common.exception.MediaNotAvailableException;
 import entity.media.Media;
 
+// Function cohesion
 public class Cart {
     
-    // common coupling
     private List<CartMedia> lstCartMedia;
     private static Cart cartInstance;
 
@@ -56,8 +56,10 @@ public class Cart {
         return total;
     }
 
+    // stamp coupling
+
+    // Communication cohesion with checkMediaCart
     public void checkAvailabilityOfProduct() throws SQLException{
-        // control coupling
         boolean allAvai = true;
         for (Object object : lstCartMedia) {
             CartMedia cartMedia = (CartMedia) object;
@@ -68,6 +70,7 @@ public class Cart {
         if (!allAvai) throw new MediaNotAvailableException("Some media not available");
     }
 
+    // stamp coupling
     public CartMedia checkMediaInCart(Media media){
         for (CartMedia cartMedia : lstCartMedia) {
             if (cartMedia.getMedia().getId() == media.getId()) return cartMedia;

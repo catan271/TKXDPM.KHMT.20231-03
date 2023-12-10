@@ -8,6 +8,7 @@ import java.util.List;
 
 import entity.db.AIMSDB;
 
+// Functional cohesion
 public class Book extends Media {
 
     String author;
@@ -103,9 +104,9 @@ public class Book extends Media {
         return this;
     }
 
+    // Comunicational cohesion
     @Override
     public Media getMediaById(int id) throws SQLException {
-        // content coupling
         String sql = "SELECT * FROM "+
                      "aims.Book " +
                      "INNER JOIN aims.Media " +
