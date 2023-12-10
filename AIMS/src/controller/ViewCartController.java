@@ -17,6 +17,7 @@ public class ViewCartController extends BaseController{
      * This method checks the available products in Cart
      * @throws SQLException
      */
+    // content coupling
     public void checkAvailabilityOfProduct() throws SQLException{
         Cart.getCart().checkAvailabilityOfProduct();
     }

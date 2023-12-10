@@ -106,7 +106,7 @@ public class PaymentController extends BaseController {
 		}
 		return result;
 	}
-
+	// control coupling
 	public void emptyCart(){
         Cart.getCart().emptyCart();
     }
