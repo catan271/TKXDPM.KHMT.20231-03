@@ -1,44 +1,44 @@
 package entity.cart;
 
+import common.exception.MediaNotAvailableException;
+import entity.media.Media;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import common.exception.MediaNotAvailableException;
-import entity.media.Media;
-
 public class Cart {
-    
     // common coupling
-    private List<CartMedia> lstCartMedia;
     private static Cart cartInstance;
+    private List<CartMedia> lstCartMedia;
 
-    public static Cart getCart(){
-        if(cartInstance == null) cartInstance = new Cart();
-        return cartInstance;
-    }
 
-    private Cart(){
+    private Cart() {
         lstCartMedia = new ArrayList<>();
     }
 
-    public void addCartMedia(CartMedia cm){
+    public static Cart getCart() {
+        if (cartInstance == null) cartInstance = new Cart();
+        return cartInstance;
+    }
+
+    public void addCartMedia(CartMedia cm) {
         lstCartMedia.add(cm);
     }
 
-    public void removeCartMedia(CartMedia cm){
+    public void removeCartMedia(CartMedia cm) {
         lstCartMedia.remove(cm);
     }
 
-    public List getListMedia(){
+    public List getListMedia() {
         return lstCartMedia;
     }
 
-    public void emptyCart(){
+    public void emptyCart() {
         lstCartMedia.clear();
     }
 
-    public int getTotalMedia(){
+    public int getTotalMedia() {
         int total = 0;
         for (Object obj : lstCartMedia) {
             CartMedia cm = (CartMedia) obj;
@@ -47,16 +47,16 @@ public class Cart {
         return total;
     }
 
-    public int calSubtotal(){
+    public int calSubtotal() {
         int total = 0;
         for (Object obj : lstCartMedia) {
             CartMedia cm = (CartMedia) obj;
-            total += cm.getPrice()*cm.getQuantity();
+            total += cm.getPrice() * cm.getQuantity();
         }
         return total;
     }
 
-    public void checkAvailabilityOfProduct() throws SQLException{
+    public void checkAvailabilityOfProduct() throws SQLException {
         // control coupling
         boolean allAvai = true;
         for (Object object : lstCartMedia) {
@@ -68,7 +68,7 @@ public class Cart {
         if (!allAvai) throw new MediaNotAvailableException("Some media not available");
     }
 
-    public CartMedia checkMediaInCart(Media media){
+    public CartMedia checkMediaInCart(Media media) {
         for (CartMedia cartMedia : lstCartMedia) {
             if (cartMedia.getMedia().getId() == media.getId()) return cartMedia;
         }
