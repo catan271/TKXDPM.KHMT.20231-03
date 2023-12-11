@@ -21,6 +21,7 @@ import subsystem.InterbankSubsystem;
  * @author hieud
  *
  */
+// Functional cohesion 
 public class PaymentController extends BaseController {
 
 	// common coupling
