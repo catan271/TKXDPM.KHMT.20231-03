@@ -151,7 +151,6 @@ The recommended report structure will have a format as follows:
         -   You can attach images if you want
 
 </details>
-
 <details>
 <summary>Trần Đức Cảnh</summary>
 <br>
@@ -165,6 +164,22 @@ The recommended report structure will have a format as follows:
     -   Pull Request(s): [https://github.com/catan271/TKXDPM.KHMT.20231-03/pull/6]()
 
 </details>
+<details>
+<summary>Nguyễn Tự Đại</summary>
+<br>
+
+-   Assigned tasks:
+
+    -   Task 1: Detect cohesion in controller package
+
+-   Implementation details:
+    -   Pull Request(s): [https://github.com/catan271/TKXDPM.KHMT.20231-03/pull/7]()
+    -   Specific implementation details:
+        -   Describe specific in detail what you did last week
+        -   You can attach images if you want
+
+</details>
+
 
 
 </details>
