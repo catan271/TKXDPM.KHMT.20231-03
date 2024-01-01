@@ -76,11 +76,27 @@ public class MediaHandler extends FXMLScreenHandler {
         });
         setMediaInfo();
     }
+<<<<<<< HEAD
+
+
+    /**
+     * @return Media
+     */
+    public Media getMedia() {
+        return media;
+    }
+
+
+    /**
+     * @throws SQLException
+     */
+=======
     
     public Media getMedia() {
         return media;
     }
     
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     private void setMediaInfo() throws SQLException {
         // set the cover image of media
         File file = new File(media.getImageURL());

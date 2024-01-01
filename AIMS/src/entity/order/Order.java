@@ -22,6 +22,11 @@ public class Order {
     private String name;
     private String province;
     private String instruction;
+<<<<<<< HEAD
+    private String address;
+    private String phone;
+=======
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
 
     public String getInstruction() {
         return instruction;
@@ -31,8 +36,11 @@ public class Order {
         this.instruction = instruction;
     }
 
+<<<<<<< HEAD
+=======
     private String address;
 
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public List<OrderMedia> getLstOrderMedia() {
         return lstOrderMedia;
     }
@@ -81,7 +89,10 @@ public class Order {
         this.id = id;
     }
 
+<<<<<<< HEAD
+=======
     private String phone;
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     private Integer id;
 
     public Order() {
@@ -137,10 +148,68 @@ public class Order {
         }
     }
 
+<<<<<<< HEAD
+
+    /**
+     * @param om
+     */
+=======
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public void addOrderMedia(OrderMedia om) {
         this.lstOrderMedia.add(om);
     }
 
+<<<<<<< HEAD
+
+    /**
+     * @param om
+     */
+    public void removeOrderMedia(OrderMedia om) {
+        this.lstOrderMedia.remove(om);
+    }
+
+
+    /**
+     * @return List
+     */
+    public List<OrderMedia> getlstOrderMedia() {
+        return this.lstOrderMedia;
+    }
+
+
+    /**
+     * @param lstOrderMedia
+     */
+    public void setlstOrderMedia(List lstOrderMedia) {
+        this.lstOrderMedia = lstOrderMedia;
+    }
+
+    /**
+     * @return int
+     */
+    public int getShippingFees() {
+        return shippingFees;
+    }
+
+    /**
+     * @param shippingFees
+     */
+    public void setShippingFees(int shippingFees) {
+        this.shippingFees = shippingFees;
+    }
+
+    public Shipment getShipment() {
+        return shipment;
+    }
+
+    public void setShipment(Shipment shipment) {
+        this.shipment = shipment;
+    }
+
+    /**
+     * @return int
+     */
+=======
     public void removeOrderMedia(OrderMedia om) {
         this.lstOrderMedia.remove(om);
     }
@@ -169,6 +238,7 @@ public class Order {
         this.shipment = shipment;
     }
     
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public int getAmount() {
         double amount = 0;
         for (Object object : lstOrderMedia) {

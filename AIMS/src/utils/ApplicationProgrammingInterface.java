@@ -20,6 +20,14 @@ public class ApplicationProgrammingInterface {
 
     /**
      * Get methods.
+<<<<<<< HEAD
+     *
+     * @param url   A link to use post method
+     * @param token data to past
+     * @return response
+     * @throws Exception when this exceptional condition occurs
+=======
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
      */
     public static String get(String url, String token) throws Exception {
         LOGGER.info("Request URL: " + url + "\n");
@@ -38,6 +46,17 @@ public class ApplicationProgrammingInterface {
         return respone.substring(0, respone.length() - 1).toString();
     }
 
+<<<<<<< HEAD
+
+    /**
+     * @param url
+     * @param requestMethod
+     * @param token
+     * @return HttpURLConnection
+     * @throws IOException
+     */
+=======
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     private static HttpURLConnection generateConnection(String url, String requestMethod, String token) throws IOException {
         final var conn = (HttpURLConnection) extracted(url).openConnection();
         conn.setDoInput(true);
@@ -52,6 +71,14 @@ public class ApplicationProgrammingInterface {
 
     /**
      * Post methods.
+<<<<<<< HEAD
+     *
+     * @param url  A link to use post method
+     * @param data Data to pass
+     * @return response in String type
+     * @throws IOException when this exceptional condition occurs
+=======
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
      */
     public static String post(String url, String data) throws IOException {
         allowMethods("PATCH");
@@ -76,12 +103,28 @@ public class ApplicationProgrammingInterface {
         LOGGER.info("Respone Info: " + response.toString());
         return response.toString();
     }
+<<<<<<< HEAD
+
+    /**
+     * @param url
+     * @return URL
+     * @throws MalformedURLException
+     */
+=======
     
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     private static URL extracted(String url) throws MalformedURLException {
         final URL line_api_url = new URL(url);
         return line_api_url;
     }
+<<<<<<< HEAD
+
+    /**
+     * @param methods
+     */
+=======
     
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     private static void allowMethods(String... methods) {
         try {
             Field methodsField = HttpURLConnection.class.getDeclaredField("methods");

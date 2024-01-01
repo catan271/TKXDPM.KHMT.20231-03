@@ -46,7 +46,16 @@ public class DeliveryMethodsScreenHandler extends BaseScreenHandler {
         super(stage, screenPath);
         this.order = order;
     }
+<<<<<<< HEAD
+
+
+    /**
+     * @param event
+     * @throws IOException
+     */
+=======
     
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     @FXML
     private void updateDeliveryMethodInfo(MouseEvent event) throws IOException {
         String deliveryInstructionString = new String(deliveryInstruction.getText());
@@ -79,6 +88,14 @@ public class DeliveryMethodsScreenHandler extends BaseScreenHandler {
         InvoiceScreenHandler.show();
     }
 
+<<<<<<< HEAD
+
+    /**
+     * @param event
+     * @throws IOException
+     */
+=======
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     @FXML
     private void handleBack(MouseEvent event) throws IOException {
         // Back to previous screen
@@ -91,6 +108,13 @@ public class DeliveryMethodsScreenHandler extends BaseScreenHandler {
         ShippingScreenHandler.show();
     }
 
+<<<<<<< HEAD
+
+    /**
+     * @param event
+     */
+=======
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     @FXML
     private void handleDeliveryType(ActionEvent event) {
         if (placeOrderValue.isSelected()) {
@@ -104,7 +128,15 @@ public class DeliveryMethodsScreenHandler extends BaseScreenHandler {
         }
         handleProvinceError(event);
     }
+<<<<<<< HEAD
+
+
+    /**
+     * @param event
+     */
+=======
     
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     @FXML
     private void handleProvinceError(ActionEvent event) {
         String province = new String(order.getProvince());
@@ -145,6 +177,12 @@ public class DeliveryMethodsScreenHandler extends BaseScreenHandler {
         }
     }
 
+<<<<<<< HEAD
+    /**
+     * @return PlaceOrderController
+     */
+=======
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public PlaceOrderController getBController() {
         return (PlaceOrderController) super.getBController();
     }

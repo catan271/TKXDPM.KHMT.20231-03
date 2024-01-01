@@ -67,7 +67,11 @@ public class CartScreenHandler extends BaseScreenHandler {
         btnPlaceOrder.setOnMouseClicked(e -> {
 
             try {
+<<<<<<< HEAD
+                requestToPlaceOrder();
+=======
                 requestOrder();
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
             } catch (SQLException | IOException exp) {
 
                 exp.printStackTrace();
@@ -76,6 +80,119 @@ public class CartScreenHandler extends BaseScreenHandler {
 
         });
     }
+<<<<<<< HEAD
+
+
+    /**
+     * @return Label
+     */
+    public Label getLabelAmount() {
+        return labelAmount;
+    }
+
+
+    /**
+     * @return Label
+     */
+    public Label getLabelSubtotal() {
+        return labelSubtotal;
+    }
+
+
+    /**
+     * @return ViewCartController
+     */
+    public ViewCartController getBController() {
+        return (ViewCartController) super.getBController();
+    }
+
+
+    /**
+     * @param prevScreen
+     * @throws SQLException
+     */
+    public void requestToViewCart(BaseScreenHandler prevScreen) throws SQLException {
+        setPreviousScreen(prevScreen);
+        setScreenTitle("Cart Screen");
+        getBController().checkAvailabilityOfProduct();
+        displayCartWithMediaAvailability();
+        show();
+    }
+
+
+    /**
+     * @throws SQLException
+     * @throws IOException
+     */
+    public void requestToPlaceOrder() throws SQLException, IOException {
+        try {
+            // create placeOrderController and process the order
+            var placeOrderController = new PlaceOrderController();
+            if (placeOrderController.getListCartMedia().size() == 0) {
+                PopupScreen.error("You don't have anything to place");
+                return;
+            }
+
+            placeOrderController.placeOrder();
+
+            // display available media
+//            displayCartWithMediaAvailability();
+
+            // create order
+            Order order = placeOrderController.createOrder();
+
+            // display shipping form
+            ShippingScreenHandler ShippingScreenHandler = new ShippingScreenHandler(this.stage, Configs.SHIPPING_SCREEN_PATH, order);
+            ShippingScreenHandler.setPreviousScreen(this);
+            ShippingScreenHandler.setHomeScreenHandler(homeScreenHandler);
+            ShippingScreenHandler.setScreenTitle("Shipping Screen");
+            ShippingScreenHandler.setBController(placeOrderController);
+            ShippingScreenHandler.show();
+
+        } catch (MediaNotAvailableException e) {
+            // if some media are not available then display cart and break usecase Place Order
+            displayCartWithMediaAvailability();
+        }
+    }
+
+
+    /**
+     * @throws SQLException
+     */
+    public void updateCart() throws SQLException {
+        getBController().checkAvailabilityOfProduct();
+        displayCartWithMediaAvailability();
+    }
+
+    void updateCartAmount() {
+        // calculate subtotal and amount
+        int subtotal = getBController().getCartSubtotal();
+        int vat = (int) ((Configs.PERCENT_VAT / 100) * subtotal);
+        int amount = subtotal + vat;
+
+
+        // update subtotal and amount of Cart
+        labelSubtotal.setText(Utils.getCurrencyFormat(subtotal));
+        labelVAT.setText(Utils.getCurrencyFormat(vat));
+        labelAmount.setText(Utils.getCurrencyFormat(amount));
+    }
+
+    private void displayCartWithMediaAvailability() {
+        // clear all old cartMedia
+        vboxCart.getChildren().clear();
+
+        // get list media of cart after check availability
+        List lstMedia = getBController().getListCartMedia();
+
+        try {
+            for (Object cm : lstMedia) {
+
+                // display the attribute of vboxCart media
+                CartMedia cartMedia = (CartMedia) cm;
+                MediaHandler mediaCartScreen = new MediaHandler(Configs.CART_MEDIA_PATH, this);
+                mediaCartScreen.setCartMedia(cartMedia);
+
+=======
     
     public Label getLabelAmount() {
         return labelAmount;
@@ -161,6 +278,7 @@ public class CartScreenHandler extends BaseScreenHandler {
                 MediaHandler mediaCartScreen = new MediaHandler(Configs.CART_MEDIA_PATH, this);
                 mediaCartScreen.setCartMedia(cartMedia);
 
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
                 // add spinner
                 vboxCart.getChildren().add(mediaCartScreen.getContent());
             }

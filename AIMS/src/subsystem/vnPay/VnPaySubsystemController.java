@@ -9,6 +9,10 @@ import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+<<<<<<< HEAD
+import utils.VnPayConfig;
+=======
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
 
 public class VnPaySubsystemController {
 
@@ -27,6 +31,8 @@ public class VnPaySubsystemController {
         return null;
     }
 
+<<<<<<< HEAD
+=======
 
 //  /**
 //   * @param data
@@ -59,6 +65,7 @@ public class VnPaySubsystemController {
 //    return queryString.toString();
 //  }
 
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     /**
      * @param money
      * @param contents
@@ -72,10 +79,17 @@ public class VnPaySubsystemController {
         long amount = money * 100L * 1000;
 
 
+<<<<<<< HEAD
+        String vnp_TxnRef = VnPayConfig.getRandomNumber(8);
+        String vnp_IpAddr = VnPayConfig.getIpAddress();
+
+        String vnp_TmnCode = VnPayConfig.vnp_TmnCode;
+=======
         String vnp_TxnRef = Config.getRandomNumber(8);
         String vnp_IpAddr = Config.getIpAddress();
 
         String vnp_TmnCode = Config.vnp_TmnCode;
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
 
         Map<String, String> vnp_Params = new HashMap<>();
         vnp_Params.put("vnp_Version", vnp_Version);
@@ -93,7 +107,11 @@ public class VnPaySubsystemController {
 
         vnp_Params.put("vnp_Locale", "vn");
 
+<<<<<<< HEAD
+        vnp_Params.put("vnp_ReturnUrl", VnPayConfig.vnp_ReturnUrl);
+=======
         vnp_Params.put("vnp_ReturnUrl", Config.vnp_ReturnUrl);
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
         vnp_Params.put("vnp_IpAddr", vnp_IpAddr);
 
         Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT+7"));
@@ -129,9 +147,15 @@ public class VnPaySubsystemController {
             }
         }
         String queryUrl = query.toString();
+<<<<<<< HEAD
+        String vnp_SecureHash = VnPayConfig.hmacSHA512(VnPayConfig.secretKey, hashData.toString());
+        queryUrl += "&vnp_SecureHash=" + vnp_SecureHash;
+        return VnPayConfig.vnp_PayUrl + "?" + queryUrl;
+=======
         String vnp_SecureHash = Config.hmacSHA512(Config.secretKey, hashData.toString());
         queryUrl += "&vnp_SecureHash=" + vnp_SecureHash;
         return Config.vnp_PayUrl + "?" + queryUrl;
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     }
 
 

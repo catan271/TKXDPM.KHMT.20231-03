@@ -65,6 +65,10 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
     private void setInvoiceInfo() {
 
         name.setText(invoice.getOrder().getName());
+<<<<<<< HEAD
+        phone.setText(invoice.getOrder().getPhone());
+=======
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
         province.setText(invoice.getOrder().getProvince());
         instructions.setText(invoice.getOrder().getInstruction());
         address.setText(invoice.getOrder().getAddress());
@@ -86,7 +90,16 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
         });
 
     }
+<<<<<<< HEAD
+
+
+    /**
+     * @param event
+     * @throws IOException
+     */
+=======
     
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     @FXML
     void confirmInvoice(MouseEvent event) throws IOException {
         BaseScreenHandler paymentScreen = new PaymentScreenHandler(this.stage, Configs.PAYMENT_SCREEN_PATH, invoice);

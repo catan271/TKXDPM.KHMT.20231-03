@@ -50,7 +50,15 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
         super(stage, screenPath);
         this.order = order;
     }
+<<<<<<< HEAD
+
+    /**
+     * @param arg0
+     * @param arg1
+     */
+=======
     
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         final BooleanProperty firstTime = new SimpleBooleanProperty(true); // Variable to store the focus on stage load
@@ -62,6 +70,50 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
         });
         this.province.getItems().addAll(Configs.PROVINCES);
     }
+<<<<<<< HEAD
+
+    /**
+     * @param event
+     * @throws IOException
+     * @throws InterruptedException
+     * @throws SQLException
+     */
+    @FXML
+    void submitDeliveryInfo(MouseEvent event) throws IOException, InterruptedException, SQLException {
+
+        // add info to messages
+        HashMap messages = new HashMap<>();
+        messages.put("name", name.getText());
+        messages.put("phone", phone.getText());
+        messages.put("address", address.getText());
+        messages.put("instructions", instructions.getText());
+        messages.put("province", province.getValue());
+        var placeOrderCtrl = getBController();
+        if (!placeOrderCtrl.validateContainLetterAndNoEmpty(name.getText())) {
+            PopupScreen.error("Name is not valid!");
+            return;
+        }
+        if (!placeOrderCtrl.validatePhoneNumber(phone.getText())) {
+            PopupScreen.error("Phone is not valid!");
+            return;
+
+        }
+        if (!placeOrderCtrl.validateContainLetterAndNoEmpty(address.getText())) {
+            PopupScreen.error("Address is not valid!");
+            return;
+        }
+        if (province.getValue() == null) {
+            PopupScreen.error("Province is empty!");
+            return;
+        }
+        try {
+            // process and validate delivery info
+            getBController().processDeliveryInfo(messages);
+        } catch (InvalidDeliveryInfoException e) {
+            throw new InvalidDeliveryInfoException(e.getMessage());
+        }
+
+=======
     
     @FXML
     void submitDeliveryInfo(MouseEvent event) throws IOException, InterruptedException, SQLException {
@@ -98,6 +150,7 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
             throw new InvalidDeliveryInfoException(e.getMessage());
         }
 
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
         // calculate shipping fees
         int shippingFees = getBController().calculateShippingFee(order.getAmount());
         order.setShippingFees(shippingFees);
@@ -125,7 +178,14 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
         DeliveryMethodsScreenHandler.setBController(getBController());
         DeliveryMethodsScreenHandler.show();
     }
+<<<<<<< HEAD
+
+    /**
+     * @return PlaceOrderController
+     */
+=======
     
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public PlaceOrderController getBController() {
         return (PlaceOrderController) super.getBController();
     }

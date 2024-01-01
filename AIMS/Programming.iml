@@ -5,6 +5,10 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+<<<<<<< HEAD
+      <sourceFolder url="file://$MODULE_DIR$/assets/images" type="java-resource" />
+=======
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -24,5 +28,9 @@
         <SOURCES />
       </library>
     </orderEntry>
+<<<<<<< HEAD
+    <orderEntry type="library" name="fontawesomefx-8.9" level="project" />
+=======
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
   </component>
 </module>

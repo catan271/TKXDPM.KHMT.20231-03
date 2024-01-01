@@ -21,6 +21,20 @@ The workspace contains the following folders, where:
 
 ### Working with Eclipse
 
+<<<<<<< HEAD
+Import the root directory of this repository after cloning under `Eclipse` -> `Open Projects from File System...` or by
+using EGit.
+
+### SQLite
+
+Import `sqlite-jdbc-3.7.2.jar` in `lib`
+under `Eclipse` -> `Project` -> `Properties` -> `Java Build Path` -> `Classpath` -> `Add JARs...`.
+
+### JUnit
+
+Import `JUnit5` library
+under `Eclipse` -> `Project` -> `Properties` -> `Java Build Path` -> `Modulepath` -> `Add Library...` -> `JUnit` -> `Next`.
+=======
 Import the root directory of this repository after cloning under `Eclipse` -> `Open Projects from File System...` or by using EGit.
 
 ### SQLite
@@ -30,6 +44,7 @@ Import `sqlite-jdbc-3.7.2.jar` in `lib` under `Eclipse` -> `Project` -> `Propert
 ### JUnit
 
 Import `JUnit5` library under `Eclipse` -> `Project` -> `Properties` -> `Java Build Path` -> `Modulepath` -> `Add Library...` -> `JUnit` -> `Next`.
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
 
 ### JavaFX
 
@@ -37,12 +52,35 @@ Import `JUnit5` library under `Eclipse` -> `Project` -> `Properties` -> `Java Bu
 
 1. Create a new `User Library`
    under `Eclipse` -> `Window` -> `Preferences` -> `Java` -> `Build Path` -> `User Libraries` -> `New`
+<<<<<<< HEAD
+2. Name it anything you want, e.g., `JavaFX15`, and include the ***jars*** under either the `lib/linux/javafx-sdk-15`
+=======
 2. Name it anything you want, e.g., `JavaFX15`, and include the **_jars_** under either the `lib/linux/javafx-sdk-15`
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
    directory for Linux distro or the `lib/win/javafx-sdk-15` directory for Windows in the project.
 3. Include the library, e.g., `JavaFX15`, into the classpath.
 
 ### Add VM arguments
 
+<<<<<<< HEAD
+Click on `Run` -> `Run Configurations...`  -> `Java Application`, create a new launch configuration for your project and
+add these VM arguments:
+
+- For Linux distro:
+
+> `--module-path lib/linux/javafx-sdk-15/lib --add-modules=javafx.controls,javafx.fxml,javafx.base,javafx.web`
+
+- For Windows:
+
+> `--module-path lib/win/javafx-sdk-15/lib --add-modules=javafx.controls,javafx.fxml,javafx.base,javafx.web`
+
+## Author
+
+- nguyenlm - Software Engeneering Student - k61
+- manhvd - Software Engeneering Student - k61
+- hieudm - ICT - k61
+- vunt - IT1 - K65
+=======
 Click on `Run` -> `Run Configurations...` -> `Java Application`, create a new launch configuration for your project and
 add these VM arguments:
 
@@ -58,3 +96,4 @@ add these VM arguments:
 -   nguyenlm - Software Engeneering Student - k61
 -   manhvd - Software Engeneering Student - k61
 -   hieudm - ICT - k61
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669

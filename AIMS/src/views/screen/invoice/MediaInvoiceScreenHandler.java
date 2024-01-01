@@ -43,12 +43,29 @@ public class MediaInvoiceScreenHandler extends FXMLScreenHandler {
     public MediaInvoiceScreenHandler(String screenPath) throws IOException {
         super(screenPath);
     }
+<<<<<<< HEAD
+
+
+    /**
+     * @param orderMedia
+     * @throws SQLException
+     */
+=======
     
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public void setOrderMedia(OrderMedia orderMedia) throws SQLException {
         this.orderMedia = orderMedia;
         setMediaInfo();
     }
+<<<<<<< HEAD
+
+
+    /**
+     * @throws SQLException
+     */
+=======
     
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public void setMediaInfo() throws SQLException {
         title.setText(orderMedia.getMedia().getTitle());
         price.setText(Utils.getCurrencyFormat(orderMedia.getPrice()));

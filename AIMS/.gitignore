@@ -6,4 +6,9 @@
 aims.session.sql
 *.ipynb
 test/notebook
+<<<<<<< HEAD
 /out
+/doc
+=======
+/out
+>>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
