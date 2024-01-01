@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-<<<<<<< HEAD
     <data-source source="LOCAL" name="aims [3]" uuid="f31ff52d-3f3f-47a6-b611-860fc182e179">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
@@ -19,13 +18,6 @@
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:E:\TLH20231\TKXDPM\AIMS\TKXDPM.KHMT.20231-20204517.LaiTrongChien\Code\FinalCode-VNPay\assets\db\aims.db</jdbc-url>
-=======
-    <data-source source="LOCAL" name="aims [2]" uuid="19ea5524-9342-498b-988c-0edc4047a6e8">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\Vu\Desktop\TKXDPMKKKK\AIMS\ntvu_20204625\Programming\assets\db\aims.db</jdbc-url>
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>

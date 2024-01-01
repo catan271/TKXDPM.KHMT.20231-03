@@ -18,7 +18,6 @@ public class Utils {
     static {
         System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-4s] [%1$tF %1$tT] [%2$-7s] %5$s %n");
     }
-<<<<<<< HEAD
 
 
     /**
@@ -57,31 +56,6 @@ public class Utils {
      *
      * @param message - plain text as {@link java.lang.String String}.
      * @return cipher text as {@link java.lang.String String}.
-=======
-    
-    public static Logger getLogger(String className) {
-        return Logger.getLogger(className);
-    }
-
-    public static String getCurrencyFormat(int num) {
-        Locale vietname = new Locale("vi", "VN");
-        NumberFormat defaultFormat = NumberFormat.getCurrencyInstance(vietname);
-        return defaultFormat.format(num * 1000);
-    }
-
-    /**
-     * Return a {@link java.lang.String String} that represents the current time in the format of yyyy-MM-dd HH:mm:ss.
-     */
-    public static String getToday() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = new Date();
-        return dateFormat.format(date);
-    }
-
-    /**
-     * Return a {@link java.lang.String String} that represents the cipher text
-     * encrypted by md5 algorithm.
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
      */
     public static String md5(String message) {
         String digest = null;

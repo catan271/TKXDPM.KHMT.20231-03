@@ -34,7 +34,6 @@ public class OrderMedia {
     public Media getMedia() {
         return this.media;
     }
-<<<<<<< HEAD
 
 
     /**
@@ -72,25 +71,6 @@ public class OrderMedia {
     /**
      * @param price
      */
-=======
-    
-    public void setMedia(Media media) {
-        this.media = media;
-    }
-    
-    public int getQuantity() {
-        return this.quantity;
-    }
-    
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-    
-    public int getPrice() {
-        return this.price;
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public void setPrice(int price) {
         this.price = price;
     }

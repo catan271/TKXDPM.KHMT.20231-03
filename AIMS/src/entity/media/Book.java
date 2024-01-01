@@ -23,17 +23,10 @@ public class Book extends Media {
 
     }
 
-<<<<<<< HEAD
     public Book(int id, String title, String category, int price, int value, int quantity, String type, String author,
                 String coverType, String publisher, Date publishDate, int numOfPages, String language,
                 String bookCategory) throws SQLException {
         super(id, title, category, price, value, quantity, type);
-=======
-    public Book(int id, String title, String category, int price, int quantity, String type, String author,
-                String coverType, String publisher, Date publishDate, int numOfPages, String language,
-                String bookCategory) throws SQLException {
-        super(id, title, category, price, quantity, type);
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
         this.author = author;
         this.coverType = coverType;
         this.publisher = publisher;
@@ -51,7 +44,6 @@ public class Book extends Media {
     public int getId() {
         return this.id;
     }
-<<<<<<< HEAD
 
 
     /**
@@ -66,18 +58,10 @@ public class Book extends Media {
      * @param author
      * @return Book
      */
-=======
-    
-    public String getAuthor() {
-        return this.author;
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public Book setAuthor(String author) {
         this.author = author;
         return this;
     }
-<<<<<<< HEAD
 
 
     /**
@@ -92,18 +76,10 @@ public class Book extends Media {
      * @param coverType
      * @return Book
      */
-=======
-    
-    public String getCoverType() {
-        return this.coverType;
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public Book setCoverType(String coverType) {
         this.coverType = coverType;
         return this;
     }
-<<<<<<< HEAD
 
 
     /**
@@ -118,20 +94,12 @@ public class Book extends Media {
      * @param publisher
      * @return Book
      */
-=======
-    
-    public String getPublisher() {
-        return this.publisher;
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public Book setPublisher(String publisher) {
         this.publisher = publisher;
         return this;
     }
 
 
-<<<<<<< HEAD
     /**
      * @return Date
      */
@@ -144,17 +112,10 @@ public class Book extends Media {
      * @param publishDate
      * @return Book
      */
-=======
-    public Date getPublishDate() {
-        return this.publishDate;
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public Book setPublishDate(Date publishDate) {
         this.publishDate = publishDate;
         return this;
     }
-<<<<<<< HEAD
 
 
     /**
@@ -169,18 +130,10 @@ public class Book extends Media {
      * @param numOfPages
      * @return Book
      */
-=======
-    
-    public int getNumOfPages() {
-        return this.numOfPages;
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public Book setNumOfPages(int numOfPages) {
         this.numOfPages = numOfPages;
         return this;
     }
-<<<<<<< HEAD
 
 
     /**
@@ -195,26 +148,15 @@ public class Book extends Media {
      * @param language
      * @return Book
      */
-=======
-    
-    public String getLanguage() {
-        return this.language;
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public Book setLanguage(String language) {
         this.language = language;
         return this;
     }
-<<<<<<< HEAD
 
 
     /**
      * @return String
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public String getBookCategory() {
         return this.bookCategory;
     }
@@ -228,7 +170,6 @@ public class Book extends Media {
         this.bookCategory = bookCategory;
         return this;
     }
-<<<<<<< HEAD
 
 
     /**
@@ -236,9 +177,6 @@ public class Book extends Media {
      * @return Media
      * @throws SQLException
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     @Override
     public Media getMediaById(int id) throws SQLException {
         String sql = "SELECT * FROM " +
@@ -266,7 +204,6 @@ public class Book extends Media {
             int numOfPages = res.getInt("numOfPages");
             String language = res.getString("language");
             String bookCategory = res.getString("bookCategory");
-<<<<<<< HEAD
 
             return new Book(id, title, category, price, value, quantity, type,
                     author, coverType, publisher, publishDate, numOfPages, language, bookCategory);
@@ -280,17 +217,6 @@ public class Book extends Media {
     /**
      * @return List
      */
-=======
-
-            return new Book(id, title, category, price, quantity, type,
-                    author, coverType, publisher, publishDate, numOfPages, language, bookCategory);
-
-        } else {
-            throw new SQLException();
-        }
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     @Override
     public List getAllMedia() throws SQLException {
         String sql = "SELECT * FROM " +
@@ -325,15 +251,11 @@ public class Book extends Media {
         }
         return bookList;
     }
-<<<<<<< HEAD
 
 
     /**
      * @return String
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     @Override
     public String toString() {
         return "{" +

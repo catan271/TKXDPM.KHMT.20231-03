@@ -27,15 +27,11 @@ public class ResultScreenHandler extends BaseScreenHandler {
         resultLabel.setText(result);
         messageLabel.setText(message);
     }
-<<<<<<< HEAD
 
     /**
      * @param event
      * @throws IOException
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     @FXML
     void confirmPayment(MouseEvent event) throws IOException {
         homeScreenHandler.show();

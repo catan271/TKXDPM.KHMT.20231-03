@@ -8,7 +8,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
-import subsystem.vnPay.Config;
 import utils.Configs;
 import utils.VnPayConfig;
 import views.screen.BaseScreenHandler;
@@ -63,7 +62,6 @@ public class PaymentScreenHandler extends BaseScreenHandler {
         }
         return params;
     }
-<<<<<<< HEAD
 
     /**
      * @param newValue url vnPay return về
@@ -104,41 +102,6 @@ public class PaymentScreenHandler extends BaseScreenHandler {
         resultScreen.setScreenTitle("Result Screen");
         resultScreen.show();
 
-=======
-    
-    private void handleUrlChanged(String newValue) {
-        if (newValue.contains(Config.vnp_ReturnUrl)) {
-            try {
-                URI uri = new URI(newValue);
-                String query = uri.getQuery();
-
-                // Chuyển đổi query thành Map
-                Map<String, String> params = parseQueryString(query);
-
-                payOrder(params);
-
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-    
-    void payOrder(Map<String, String> res) throws IOException {
-
-        var ctrl = (PaymentController) super.getBController();
-        Map<String, String> response = ctrl.makePayment(res, this.invoice.getOrder().getId());
-
-        BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH,
-                response.get("RESULT"), response.get("MESSAGE"));
-        ctrl.emptyCart();
-        resultScreen.setPreviousScreen(this);
-        resultScreen.setHomeScreenHandler(homeScreenHandler);
-        resultScreen.setScreenTitle("Result Screen");
-        resultScreen.show();
-
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     }
 
 }

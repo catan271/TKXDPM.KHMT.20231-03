@@ -24,11 +24,8 @@ public class Configs {
     public static final String RESULT_SCREEN_PATH = "/views/fxml/result.fxml";
     public static final String SPLASH_SCREEN_PATH = "/views/fxml/splash.fxml";
     public static final String CART_SCREEN_PATH = "/views/fxml/cart.fxml";
-<<<<<<< HEAD
     public static final String LOGIN_SCREEN_PATH = "/views/fxml/login.fxml";
     public static final String ADMIN_SCREEN_PATH = "/views/fxml/admin_page.fxml";
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public static final String SHIPPING_SCREEN_PATH = "/views/fxml/shipping.fxml";
     public static final String CART_MEDIA_PATH = "/views/fxml/media_cart.fxml";
     public static final String HOME_PATH = "/views/fxml/home.fxml";

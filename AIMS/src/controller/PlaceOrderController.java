@@ -14,11 +14,7 @@ import java.util.Random;
 import java.util.logging.Logger;
 
 public class PlaceOrderController extends BaseController {
-<<<<<<< HEAD
 
-=======
-    // common coupling
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     /**
      * Just for logging purpose
      */
@@ -26,12 +22,9 @@ public class PlaceOrderController extends BaseController {
 
     /**
      * This method checks the avalibility of product when user click PlaceOrder
-<<<<<<< HEAD
      * button
      *
      * @throws SQLException
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
      */
     public void placeOrder() throws SQLException {
         Cart.getCart().checkAvailabilityOfProduct();
@@ -39,12 +32,9 @@ public class PlaceOrderController extends BaseController {
 
     /**
      * This method creates the new Order based on the Cart
-<<<<<<< HEAD
      *
      * @return Order
      * @throws SQLException
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
      */
     public Order createOrder() throws SQLException {
         Order order = new Order();
@@ -60,12 +50,9 @@ public class PlaceOrderController extends BaseController {
 
     /**
      * This method creates the new Invoice based on order
-<<<<<<< HEAD
      *
      * @param order
      * @return Invoice
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
      */
     public Invoice createInvoice(Order order) {
 
@@ -75,13 +62,10 @@ public class PlaceOrderController extends BaseController {
 
     /**
      * This method takes responsibility for processing the shipping info from user
-<<<<<<< HEAD
      *
      * @param info
      * @throws InterruptedException
      * @throws IOException
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
      */
     public void processDeliveryInfo(HashMap info) throws InterruptedException, IOException {
         validateDeliveryInfo(info);
@@ -89,26 +73,20 @@ public class PlaceOrderController extends BaseController {
 
     /**
      * The method validates the info
-<<<<<<< HEAD
      *
      * @param info
      * @throws InterruptedException
      * @throws IOException
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
      */
     public void validateDeliveryInfo(HashMap<String, String> info) throws InterruptedException, IOException {
 
     }
 
-<<<<<<< HEAD
 
     /**
      * @param phoneNumber
      * @return boolean
      */
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public boolean validatePhoneNumber(String phoneNumber) {
         if (phoneNumber.length() != 10)
             return false;
@@ -123,14 +101,11 @@ public class PlaceOrderController extends BaseController {
         return true;
     }
 
-<<<<<<< HEAD
 
     /**
      * @param name
      * @return boolean
      */
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public boolean validateContainLetterAndNoEmpty(String name) {
         // Check name is not null
         if (name == null)
@@ -147,12 +122,9 @@ public class PlaceOrderController extends BaseController {
 
     /**
      * This method calculates the shipping fees of order
-<<<<<<< HEAD
      *
      * @param order
      * @return shippingFee
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
      */
     public int calculateShippingFee(int amount) {
         Random rand = new Random();
@@ -162,13 +134,10 @@ public class PlaceOrderController extends BaseController {
 
     /**
      * This method get product available place rush order media
-<<<<<<< HEAD
      *
      * @param order
      * @return media
      * @throws SQLException
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
      */
     public Media getProductAvailablePlaceRush(Order order) throws SQLException {
         Media media = new Media();

@@ -11,16 +11,11 @@ import java.util.Map;
  * The {@code InterbankInterface} class is used to communicate with the
  * {@link VnPaySubsystem InterbankSubsystem} to make transaction.
  *
-<<<<<<< HEAD
-=======
- * @author hieud
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
  */
 public interface VnPayInterface {
 
     /**
      * Pay order, and then return the payment transaction.
-<<<<<<< HEAD
      *
      * @param card     - the credit card used for payment
      * @param amount   - the amount to pay
@@ -30,8 +25,6 @@ public interface VnPayInterface {
      * @throws PaymentException      if responded with a pre-defined error code
      * @throws UnrecognizedException if responded with an unknown error code or
      *                               something goes wrong
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
      */
     public abstract String generatePayUrl(int amount, String contents)
             throws PaymentException, UnrecognizedException;

@@ -16,15 +16,9 @@ public class CD extends Media {
 
     }
 
-<<<<<<< HEAD
     public CD(int id, String title, String category, int price, int value, int quantity, String type, String artist,
               String recordLabel, String musicType, Date releasedDate) throws SQLException {
         super(id, title, category, price, value, quantity, type);
-=======
-    public CD(int id, String title, String category, int price, int quantity, String type, String artist,
-              String recordLabel, String musicType, Date releasedDate) throws SQLException {
-        super(id, title, category, price, quantity, type);
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
         this.artist = artist;
         this.recordLabel = recordLabel;
         this.musicType = musicType;
@@ -48,15 +42,11 @@ public class CD extends Media {
         this.artist = artist;
         return this;
     }
-<<<<<<< HEAD
 
 
     /**
      * @return String
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public String getRecordLabel() {
         return this.recordLabel;
     }
@@ -70,7 +60,6 @@ public class CD extends Media {
         this.recordLabel = recordLabel;
         return this;
     }
-<<<<<<< HEAD
 
 
     /**
@@ -85,18 +74,10 @@ public class CD extends Media {
      * @param musicType
      * @return CD
      */
-=======
-    
-    public String getMusicType() {
-        return this.musicType;
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public CD setMusicType(String musicType) {
         this.musicType = musicType;
         return this;
     }
-<<<<<<< HEAD
 
 
     /**
@@ -111,13 +92,6 @@ public class CD extends Media {
      * @param releasedDate
      * @return CD
      */
-=======
-    
-    public Date getReleasedDate() {
-        return this.releasedDate;
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public CD setReleasedDate(Date releasedDate) {
         this.releasedDate = releasedDate;
         return this;
@@ -135,14 +109,11 @@ public class CD extends Media {
     }
 
 
-<<<<<<< HEAD
     /**
      * @param id
      * @return Media
      * @throws SQLException
      */
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     @Override
     public Media getMediaById(int id) throws SQLException {
         String sql = "SELECT * FROM " +
@@ -166,7 +137,6 @@ public class CD extends Media {
             String recordLabel = res.getString("recordLabel");
             String musicType = res.getString("musicType");
             Date releasedDate = res.getDate("releasedDate");
-<<<<<<< HEAD
 
             return new CD(id, title, category, price, value, quantity, type,
                     artist, recordLabel, musicType, releasedDate);
@@ -180,17 +150,6 @@ public class CD extends Media {
     /**
      * @return List
      */
-=======
-
-            return new CD(id, title, category, price, quantity, type,
-                    artist, recordLabel, musicType, releasedDate);
-
-        } else {
-            throw new SQLException();
-        }
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     @Override
     public List getAllMedia() {
         return null;

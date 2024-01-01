@@ -16,13 +16,10 @@ public class User {
         this.phone = phone;
     }
 
-<<<<<<< HEAD
 
     /**
      * @return String
      */
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     // override toString method
     @Override
     public String toString() {
@@ -33,20 +30,15 @@ public class User {
                 ", phone='" + phone + "'" +
                 "}";
     }
-<<<<<<< HEAD
 
 
     /**
      * @return String
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     // getter and setter
     public String getName() {
         return this.name;
     }
-<<<<<<< HEAD
 
 
     /**
@@ -104,34 +96,4 @@ public class User {
         this.phone = phone;
     }
 
-=======
-    
-    public void setusername(String name) {
-        this.name = name;
-    }
-    
-    public String getEmail() {
-        return this.email;
-    }
-    
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    
-    public String getAddress() {
-        return this.address;
-    }
-    
-    public void setAddress(String address) {
-        this.address = address;
-    }
-    
-    public String getPhone() {
-        return this.phone;
-    }
-    
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
 }

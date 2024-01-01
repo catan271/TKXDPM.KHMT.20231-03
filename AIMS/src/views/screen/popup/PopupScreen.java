@@ -26,7 +26,6 @@ public class PopupScreen extends BaseScreenHandler {
     public PopupScreen(Stage stage) throws IOException {
         super(stage, Configs.POPUP_PATH);
     }
-<<<<<<< HEAD
 
 
     /**
@@ -36,9 +35,6 @@ public class PopupScreen extends BaseScreenHandler {
      * @return PopupScreen
      * @throws IOException
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     private static PopupScreen popup(String message, String imagepath, Boolean undecorated) throws IOException {
         PopupScreen popup = new PopupScreen(new Stage());
         if (undecorated) popup.stage.initStyle(StageStyle.UNDECORATED);
@@ -46,7 +42,6 @@ public class PopupScreen extends BaseScreenHandler {
         popup.setImage(imagepath);
         return popup;
     }
-<<<<<<< HEAD
 
 
     /**
@@ -72,17 +67,6 @@ public class PopupScreen extends BaseScreenHandler {
      * @return PopupScreen
      * @throws IOException
      */
-=======
-    
-    public static void success(String message) throws IOException {
-        popup(message, Configs.IMAGE_PATH + "/" + "tickgreen.png", true).show(true);
-    }
-    
-    public static void error(String message) throws IOException {
-        popup(message, Configs.IMAGE_PATH + "/" + "tickerror.png", false).show(false);
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public static PopupScreen loading(String message) throws IOException {
         return popup(message, Configs.IMAGE_PATH + "/" + "loading.gif", true);
     }
@@ -94,41 +78,29 @@ public class PopupScreen extends BaseScreenHandler {
     public void setImage(String path) {
         super.setImage(tickicon, path);
     }
-<<<<<<< HEAD
 
 
     /**
      * @param autoclose
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public void show(Boolean autoclose) {
         super.show();
         if (autoclose) close(0.8);
     }
-<<<<<<< HEAD
 
 
     /**
      * @param time
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public void show(double time) {
         super.show();
         close(time);
     }
-<<<<<<< HEAD
 
 
     /**
      * @param time
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public void close(double time) {
         PauseTransition delay = new PauseTransition(Duration.seconds(time));
         delay.setOnFinished(event -> stage.close());

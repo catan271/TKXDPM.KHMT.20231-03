@@ -13,10 +13,7 @@ import java.util.logging.Logger;
 
 /**
  * The general media class, for another media it can be done by inheriting this class
-<<<<<<< HEAD
  *
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
  */
 public class Media {
 
@@ -36,11 +33,7 @@ public class Media {
         stm = AIMSDB.getConnection().createStatement();
     }
 
-<<<<<<< HEAD
     public Media(int id, String title, String category, int price, int value, int quantity, String type) throws SQLException {
-=======
-    public Media(int id, String title, String category, int price, int quantity, String type) throws SQLException {
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
         this.id = id;
         this.title = title;
         this.category = category;
@@ -51,13 +44,8 @@ public class Media {
 
         //stm = AIMSDB.getConnection().createStatement();
     }
-    
-    public static boolean getIsSupportedPlaceRushOrder() {
-        return Media.isSupportedPlaceRushOrder;
-    }
 
     /**
-<<<<<<< HEAD
      * @return boolean
      */
     public static boolean getIsSupportedPlaceRushOrder() {
@@ -65,8 +53,6 @@ public class Media {
     }
 
     /**
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
      * @return int
      * @throws SQLException
      */
@@ -75,15 +61,11 @@ public class Media {
         this.quantity = updated_quantity;
         return updated_quantity;
     }
-<<<<<<< HEAD
 
     /**
      * @param quantity
      * @return Media
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public Media setQuantity(int quantity) {
         this.quantity = quantity;
         return this;
@@ -111,15 +93,11 @@ public class Media {
         }
         return null;
     }
-<<<<<<< HEAD
 
     /**
      * @return List
      * @throws SQLException
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public List getAllMedia() throws SQLException {
         Statement stm = AIMSDB.getConnection().createStatement();
         ResultSet res = stm.executeQuery("select * from Media");
@@ -132,16 +110,12 @@ public class Media {
                     .setCategory(res.getString("category"))
                     .setMediaURL(res.getString("imageUrl"))
                     .setPrice(res.getInt("price"))
-<<<<<<< HEAD
                     .setValue(res.getInt("value"))
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
                     .setType(res.getString("type"));
             medium.add(media);
         }
         return medium;
     }
-<<<<<<< HEAD
 
     /**
      * @param tbname
@@ -150,9 +124,6 @@ public class Media {
      * @param value
      * @throws SQLException
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public void updateMediaFieldById(String tbname, int id, String field, Object value) throws SQLException {
         Statement stm = AIMSDB.getConnection().createStatement();
         if (value instanceof String) {
@@ -163,30 +134,22 @@ public class Media {
                 + "where id=" + id + ";");
     }
 
-<<<<<<< HEAD
     /**
      * @return int
      */
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     // getter and setter
     public int getId() {
         return this.id;
     }
-<<<<<<< HEAD
 
     /**
      * @param id
      * @return Media
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     private Media setId(int id) {
         this.id = id;
         return this;
     }
-<<<<<<< HEAD
 
     /**
      * @return String
@@ -199,18 +162,10 @@ public class Media {
      * @param title
      * @return Media
      */
-=======
-    
-    public String getTitle() {
-        return this.title;
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public Media setTitle(String title) {
         this.title = title;
         return this;
     }
-<<<<<<< HEAD
 
     /**
      * @return String
@@ -223,18 +178,10 @@ public class Media {
      * @param category
      * @return Media
      */
-=======
-    
-    public String getCategory() {
-        return this.category;
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public Media setCategory(String category) {
         this.category = category;
         return this;
     }
-<<<<<<< HEAD
 
     /**
      * @return int
@@ -247,18 +194,10 @@ public class Media {
      * @param price
      * @return Media
      */
-=======
-    
-    public int getPrice() {
-        return this.price;
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public Media setPrice(int price) {
         this.price = price;
         return this;
     }
-<<<<<<< HEAD
 
     public int getValue() { return this.value; }
 
@@ -278,25 +217,14 @@ public class Media {
      * @param url
      * @return Media
      */
-=======
-    
-    public String getImageURL() {
-        return this.imageURL;
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public Media setMediaURL(String url) {
         this.imageURL = url;
         return this;
     }
-<<<<<<< HEAD
 
     /**
      * @return String
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public String getType() {
         return this.type;
     }
@@ -309,24 +237,17 @@ public class Media {
         this.type = type;
         return this;
     }
-<<<<<<< HEAD
 
     /**
      * @return String
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     @Override
     public String toString() {
         return "{" +
                 " id='" + id + "'" +
                 ", title='" + title + "'" +
                 ", category='" + category + "'" +
-<<<<<<< HEAD
                 ", value='" + value + "'" +
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
                 ", price='" + price + "'" +
                 ", quantity='" + quantity + "'" +
                 ", type='" + type + "'" +

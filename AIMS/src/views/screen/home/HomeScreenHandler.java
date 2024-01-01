@@ -1,10 +1,7 @@
 package views.screen.home;
 
 import common.exception.ViewCartException;
-<<<<<<< HEAD
 import controller.AuthenticationController;
-=======
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
 import controller.HomeController;
 import controller.ViewCartController;
 import entity.cart.Cart;
@@ -69,7 +66,6 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
     }
-<<<<<<< HEAD
 
     /**
      * @return Label
@@ -81,13 +77,6 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     /**
      * @return HomeController
      */
-=======
-    
-    public Label getNumMediaCartLabel() {
-        return this.numMediaInCart;
-    }
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public HomeController getBController() {
         return (HomeController) super.getBController();
     }
@@ -97,15 +86,11 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         numMediaInCart.setText(String.valueOf(Cart.getCart().getListMedia().size()) + " media");
         super.show();
     }
-<<<<<<< HEAD
 
     /**
      * @param arg0
      * @param arg1
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         setBController(new HomeController());
@@ -167,14 +152,10 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         Image img2 = new Image(file2.toURI().toString());
         cartImage.setImage(img2);
     }
-<<<<<<< HEAD
 
     /**
      * @param items
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     public void addMediaHome(List items) {
         ArrayList mediaItems = (ArrayList) ((ArrayList) items).clone();
         hboxMedia.getChildren().forEach(node -> {
@@ -194,16 +175,12 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
             return;
         }
     }
-<<<<<<< HEAD
 
     /**
      * @param position
      * @param text
      * @param menuButton
      */
-=======
-    
->>>>>>> 86d63191ae6fcef68f6a0e374ae89b2ce88e2669
     private void addMenuItem(int position, String text, MenuButton menuButton) {
         MenuItem menuItem = new MenuItem();
         Label label = new Label();
