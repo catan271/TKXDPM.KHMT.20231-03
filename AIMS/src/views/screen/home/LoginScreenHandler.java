@@ -52,6 +52,7 @@ public class LoginScreenHandler extends BaseScreenHandler{
 
         } catch (Exception ex) {
             PopupScreen.error(ex.getMessage());
+            ex.printStackTrace();
         }
     }
 

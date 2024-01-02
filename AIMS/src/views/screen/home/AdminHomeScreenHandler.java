@@ -6,11 +6,10 @@ import entity.media.Media;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import utils.Utils;
 import views.screen.BaseScreenHandler;
@@ -18,9 +17,13 @@ import views.screen.BaseScreenHandler;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
+
+import static java.lang.Integer.parseInt;
 
 public class AdminHomeScreenHandler extends BaseScreenHandler implements Initializable {
 
@@ -112,12 +115,46 @@ public class AdminHomeScreenHandler extends BaseScreenHandler implements Initial
     private TableColumn<Book, String> bookPublisherCol;
 
     @FXML
-    private TableColumn<Book, String> bookPublishDateCol;
+    private TableColumn<Book, Date> bookPublishDateCol;
 
     @FXML
     private TableColumn<Book, String> bookLanguageCol;
 
+    @FXML
+    private TextField bookId;
 
+    @FXML
+    private TextField bookCategory;
+
+    @FXML
+    private TextField bookTitle;
+
+    @FXML
+    private TextField bookValue;
+
+    @FXML
+    private TextField bookPrice;
+
+    @FXML
+    private TextField bookQuantity;
+
+    @FXML
+    private TextField bookAuthor;
+
+    @FXML
+    private ComboBox bookCover;
+
+    @FXML
+    private TextField bookPublisher;
+
+    @FXML
+    private DatePicker bookPubDate;
+
+    @FXML
+    private TextField bookPages;
+
+    @FXML
+    private TextField bookLanguage;
 
     public AdminHomeScreenHandler(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
@@ -164,21 +201,26 @@ public class AdminHomeScreenHandler extends BaseScreenHandler implements Initial
 
     public void showAllMedia() throws SQLException {
         List<Media> listMedia = getBController().getAllMedia();
-        LOGGER.info("Number of media items: " + listMedia.size());
+//        for (Media media : listMedia) {
+//            LOGGER.info("Media ID: " + media.getId() + ", Quantity: " + media.getQuantity());
+//        }
+
         mediaIDCol.setCellValueFactory(new PropertyValueFactory<Media, Integer>("id"));
         mediaValueCol.setCellValueFactory(new PropertyValueFactory<Media, Integer>("value"));
         mediaPriceCol.setCellValueFactory(new PropertyValueFactory<Media, Integer>("price"));
-        mediaQuantityCol.setCellValueFactory(new PropertyValueFactory<Media, Integer>("quantity"));
         mediaTypeCol.setCellValueFactory(new PropertyValueFactory<Media, String>("type"));
         mediaCategoryCol.setCellValueFactory(new PropertyValueFactory<Media, String>("category"));
         mediaTitleCol.setCellValueFactory(new PropertyValueFactory<Media, String>("title"));
+        mediaQuantityCol.setCellValueFactory(new PropertyValueFactory<Media, Integer>("quantity"));
 
         mediaTableView.getItems().setAll(listMedia);
     }
 
     public void showAllBook() throws SQLException {
         List<Book> listBook = getBController().getAllBook();
-        LOGGER.info("Number of media items: " + listBook.size());
+//        for (Book book : listBook) {
+//            LOGGER.info("Media ID: " + book.getId() + ", Date: " + book.getPublishDate());
+//        }
         bookIDCol.setCellValueFactory(new PropertyValueFactory<Book, Integer>("id"));
         bookValueCol.setCellValueFactory(new PropertyValueFactory<Book, Integer>("value"));
         bookPriceCol.setCellValueFactory(new PropertyValueFactory<Book, Integer>("price"));
@@ -189,11 +231,59 @@ public class AdminHomeScreenHandler extends BaseScreenHandler implements Initial
         bookAuthorCol.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
         bookCoverTypeCol.setCellValueFactory(new PropertyValueFactory<Book, String>("coverType"));
         bookPublisherCol.setCellValueFactory(new PropertyValueFactory<Book, String>("publisher"));
-        bookPublishDateCol.setCellValueFactory(new PropertyValueFactory<Book, String>("publishDate"));
+        bookPublishDateCol.setCellValueFactory(new PropertyValueFactory<Book, Date>("publishDate"));
         bookLanguageCol.setCellValueFactory(new PropertyValueFactory<Book, String>("language"));
 
         bookTableView.getItems().setAll(listBook);
     }
+
+    public void insertBook() throws SQLException {
+        getBController().insertBook(parseInt(bookId.getText()), bookTitle.getText(), bookCategory.getText(), parseInt(bookPrice.getText()), parseInt(bookValue.getText()), parseInt(bookQuantity.getText()), "book", bookAuthor.getText(), (String) bookCover.getValue(), bookPublisher.getText(), java.sql.Date.valueOf(bookPubDate.getValue()), parseInt(bookPages.getText()), bookLanguage.getText(), bookCategory.getText(), "assets/images/book/book3.jpg");
+        showAllBook();
+    }
+
+    public void updateBook() throws SQLException {
+        getBController().updateBook(parseInt(bookId.getText()), bookTitle.getText(), bookCategory.getText(), parseInt(bookPrice.getText()), parseInt(bookValue.getText()), parseInt(bookQuantity.getText()), "book", bookAuthor.getText(), (String) bookCover.getValue(), bookPublisher.getText(), java.sql.Date.valueOf(bookPubDate.getValue()), parseInt(bookPages.getText()), bookLanguage.getText(), bookCategory.getText());
+        showAllBook();
+    }
+
+    public void deleteBook() throws SQLException {
+        getBController().deleteBook(parseInt(bookId.getText()));
+        showAllBook();
+    }
+
+    public void resetBookData() {
+        bookId.clear();
+        bookTitle.clear();
+        bookCategory.clear();
+        bookPrice.clear();
+        bookValue.clear();
+        bookQuantity.clear();
+        bookAuthor.clear();
+        bookCover.getSelectionModel().clearSelection();
+        bookPublisher.clear();
+        bookPubDate.getEditor().clear(); // Clear the date picker text field
+        bookPages.clear();
+        bookLanguage.clear();
+    }
+
+//    @FXML
+//    void uploadMediaImage(ActionEvent event) {
+//        FileChooser fileChooser = new FileChooser();
+//        fileChooser.getExtensionFilters().addAll(
+//                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+//        );
+//
+//        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+//        File selectedFile = fileChooser.showOpenDialog(stage);
+//
+//        if (selectedFile != null) {
+//            String imagePath = selectedFile.getAbsolutePath();
+//            // Save the imagePath to the database
+//            saveImagePathToDatabase(imagePath);
+//            System.out.println("Image Path: " + imagePath);
+//        }
+//    }
 
     @FXML
     void logout() throws IOException, InterruptedException, SQLException {

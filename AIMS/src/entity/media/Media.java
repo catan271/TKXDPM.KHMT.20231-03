@@ -42,6 +42,7 @@ public class Media {
         this.quantity = quantity;
         this.type = type;
 
+
         //stm = AIMSDB.getConnection().createStatement();
     }
 
@@ -77,7 +78,7 @@ public class Media {
      * @throws SQLException
      */
     public Media getMediaById(int id) throws SQLException {
-        String sql = "SELECT * FROM Media ;";
+        String sql = "SELECT * FROM Media WHERE id = " + id;
         Statement stm = AIMSDB.getConnection().createStatement();
         ResultSet res = stm.executeQuery(sql);
         if (res.next()) {
@@ -89,6 +90,7 @@ public class Media {
                     .setCategory(res.getString("category"))
                     .setMediaURL(res.getString("imageUrl"))
                     .setPrice(res.getInt("price"))
+                    .setValue(res.getInt("value"))
                     .setType(res.getString("type"));
         }
         return null;
@@ -112,6 +114,7 @@ public class Media {
                     .setPrice(res.getInt("price"))
                     .setValue(res.getInt("value"))
                     .setType(res.getString("type"));
+//            LOGGER.info("Media" + media.quantity);
             medium.add(media);
         }
         return medium;

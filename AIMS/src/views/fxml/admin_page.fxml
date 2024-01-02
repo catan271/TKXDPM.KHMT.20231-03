@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -71,9 +73,9 @@
                   </TableView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="bookForm" layoutX="9.0" layoutY="9.0" prefHeight="715.0" prefWidth="1115.0" style="-fx-border-color: gray;" visible="false" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="9.0">
+            <AnchorPane fx:id="bookForm" layoutX="9.0" layoutY="9.0" prefHeight="705.0" prefWidth="1115.0" style="-fx-border-color: gray;" visible="false" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="9.0">
                <children>
-                  <TableView fx:id="bookTableView" layoutX="12.0" layoutY="12.0" prefHeight="666.0" prefWidth="1089.0">
+                  <TableView fx:id="bookTableView" layoutX="12.0" layoutY="12.0" prefHeight="360.0" prefWidth="1089.0">
                      <columns>
                         <TableColumn fx:id="bookIDCol" prefWidth="95.0" text="Book ID" />
                         <TableColumn fx:id="bookCategoryCol" prefWidth="112.0" text="Book Category" />
@@ -89,6 +91,110 @@
                         <TableColumn fx:id="bookQuantityCol" minWidth="0.0" prefWidth="104.0" text="Quantity" />
                      </columns>
                   </TableView>
+                  <Label alignment="CENTER" layoutX="27.0" layoutY="400.0" prefHeight="20.0" prefWidth="59.0" text="ID :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="bookId" layoutX="94.0" layoutY="397.0" />
+                  <Label alignment="CENTER" layoutX="21.0" layoutY="448.0" prefHeight="20.0" prefWidth="65.0" text="Title :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="bookTitle" layoutX="94.0" layoutY="445.0" />
+                  <Label alignment="CENTER" layoutX="21.0" layoutY="509.0" prefHeight="20.0" prefWidth="65.0" text="Value :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="bookValue" layoutX="95.0" layoutY="506.0" />
+                  <Label alignment="CENTER" layoutX="21.0" layoutY="559.0" prefHeight="20.0" prefWidth="65.0" text="Price :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="bookPrice" layoutX="95.0" layoutY="556.0" />
+                  <Label alignment="CENTER" layoutX="2.0" layoutY="608.0" prefHeight="20.0" prefWidth="84.0" text="Quantity :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="bookQuantity" layoutX="95.0" layoutY="605.0" />
+                  <Label alignment="CENTER" layoutX="342.0" layoutY="400.0" prefHeight="20.0" prefWidth="59.0" text="Author :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="bookAuthor" layoutX="409.0" layoutY="397.0" />
+                  <Label alignment="CENTER" layoutX="316.0" layoutY="448.0" prefHeight="20.0" prefWidth="84.0" text="Cover Type :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="325.0" layoutY="510.0" prefHeight="20.0" prefWidth="76.0" text="Publisher :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="bookPublisher" layoutX="409.0" layoutY="507.0" />
+                  <Label alignment="CENTER" layoutX="306.0" layoutY="559.0" prefHeight="20.0" prefWidth="95.0" text="Publish Date :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="294.0" layoutY="608.0" prefHeight="20.0" prefWidth="107.0" text="Num of Pages :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="bookPages" layoutX="409.0" layoutY="605.0" />
+                  <Label alignment="CENTER" layoutX="603.0" layoutY="401.0" prefHeight="20.0" prefWidth="84.0" text="Language :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="bookLanguage" layoutX="695.0" layoutY="398.0" />
+                  <ComboBox fx:id="bookCover" layoutX="409.0" layoutY="446.0" prefWidth="150.0" promptText="Select">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="Paperback" />
+                           <String fx:value="Hardcover" />
+                        </FXCollections>
+                     </items>
+                  </ComboBox>
+                  <DatePicker fx:id="bookPubDate" layoutX="409.0" layoutY="557.0" prefHeight="25.0" prefWidth="149.0" />
+                  <Button layoutX="931.0" layoutY="392.0" mnemonicParsing="false" onAction="#insertBook" prefHeight="25.0" prefWidth="95.0" text="INSERT">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="931.0" layoutY="459.0" mnemonicParsing="false" onAction="#updateBook" prefHeight="25.0" prefWidth="95.0" text="UPDATE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="931.0" layoutY="529.0" mnemonicParsing="false" onAction="#deleteBook" prefHeight="25.0" prefWidth="95.0" text="DELETE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Label alignment="CENTER" layoutX="603.0" layoutY="450.0" prefHeight="20.0" prefWidth="84.0" text="Category :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="bookCategory" layoutX="695.0" layoutY="447.0" />
+                  <Button layoutX="931.0" layoutY="601.0" mnemonicParsing="false" onAction="#resetBookData" prefHeight="25.0" prefWidth="95.0" text="RESET ">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+<!--                  <Button layoutX="614.0" layoutY="504.0" mnemonicParsing="false" onAction="#uploadMediaImage" prefHeight="25.0" prefWidth="137.0" text="Upload Image">-->
+<!--                     <font>-->
+<!--                        <Font size="14.0" />-->
+<!--                     </font>-->
+<!--                  </Button>-->
                </children>
             </AnchorPane>
             <AnchorPane fx:id="cdForm" layoutX="9.0" layoutY="9.0" prefHeight="715.0" prefWidth="1115.0" style="-fx-border-color: gray;" visible="false" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="9.0">

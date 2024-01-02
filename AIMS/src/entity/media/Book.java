@@ -1,6 +1,7 @@
 package entity.media;
 
 import entity.db.AIMSDB;
+import utils.Utils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,8 +9,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class Book extends Media {
+
+    private static Logger LOGGER = Utils.getLogger(Media.class.getName());
 
     String author;
     String coverType;
@@ -180,8 +184,8 @@ public class Book extends Media {
     @Override
     public Media getMediaById(int id) throws SQLException {
         String sql = "SELECT * FROM " +
-                "aims.Book " +
-                "INNER JOIN aims.Media " +
+                "Book " +
+                "INNER JOIN Media " +
                 "ON Media.id = Book.id " +
                 "where Media.id = " + id + ";";
         Statement stm = AIMSDB.getConnection().createStatement();
@@ -191,6 +195,7 @@ public class Book extends Media {
             // from Media table
             String title = "";
             String type = res.getString("type");
+//            String imageURL = res.getString("imageURL");
             int price = res.getInt("price");
             int value = res.getInt("value");
             String category = res.getString("category");
@@ -229,18 +234,22 @@ public class Book extends Media {
         while (res.next()) {
 
             // from Media table
-            String title = "";
+            int id = res.getInt(1);
+            String title = res.getString("title");
             String type = res.getString("type");
+//            String imageURL = res.getString("imageURL");
             int price = res.getInt("price");
             int value = res.getInt("value");
             String category = res.getString("category");
             int quantity = res.getInt("quantity");
+
 
             // from Book table
             String author = res.getString("author");
             String coverType = res.getString("coverType");
             String publisher = res.getString("publisher");
             Date publishDate = res.getDate("publishDate");
+//            LOGGER.info("Quantity" + publishDate);
             int numOfPages = res.getInt("numOfPages");
             String language = res.getString("language");
             String bookCategory = res.getString("bookCategory");
@@ -252,6 +261,71 @@ public class Book extends Media {
         return bookList;
     }
 
+    public void insertBook(int id, String title, String category, int price, int value, int quantity, String type, String author,
+                           String coverType, String publisher, Date publishDate, int numOfPages, String language,
+                           String bookCategory, String imageUrl) {
+        String insertMediaSql = "INSERT INTO Media (id, title, category, price, value, quantity, type, imageUrl) VALUES (" +
+                id + ", '" + title + "', '" + category + "', " + price + ", " + value + ", " + quantity + ", '" +
+                type + "', '" + imageUrl + "')";
+        String insertBookSql = "INSERT INTO Book (id, author, coverType, publisher, publishDate, numOfPages, language, bookCategory) VALUES (" +
+                id + ", '" + author + "', '" + coverType + "', '" + publisher + "', '" +
+                publishDate + "', " + numOfPages + ", '" + language + "', '" +
+                bookCategory + "')";
+//        LOGGER.info(insertBookSql);
+//        LOGGER.info(insertMediaSql);
+        try {
+            Statement stm = AIMSDB.getConnection().createStatement();
+            stm.executeUpdate(insertBookSql);
+            stm.executeUpdate(insertMediaSql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateBook(int id, String title, String category, int price, int value, int quantity, String type, String author,
+                           String coverType, String publisher, Date publishDate, int numOfPages, String language,
+                           String bookCategory) {
+        // Update Media table
+        String updateMediaSql = "UPDATE Media SET " +
+                "title = '" + title + "', " +
+                "category = '" + category + "', " +
+                "price = " + price + ", " +
+                "value = " + value + ", " +
+                "quantity = " + quantity + ", " +
+                "type = '" + type + "' " +
+                "WHERE id = " + id;
+
+        // Update Book table
+        String updateBookSql = "UPDATE Book SET " +
+                "author = '" + author + "', " +
+                "coverType = '" + coverType + "', " +
+                "publisher = '" + publisher + "', " +
+                "publishDate = '" + publishDate + "', " +
+                "numOfPages = " + numOfPages + ", " +
+                "language = '" + language + "', " +
+                "bookCategory = '" + bookCategory + "' " +
+                "WHERE id = " + id;
+
+        try {
+            Statement stm = AIMSDB.getConnection().createStatement();
+            stm.executeUpdate(updateMediaSql);
+            stm.executeUpdate(updateBookSql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void deleteBook(int id) {
+        String deleteMediaSql = "DELETE FROM Media WHERE id = " + id;
+        String deleteBookSql = "DELETE FROM Book WHERE id = " + id;
+
+        try {
+            Statement stm = AIMSDB.getConnection().createStatement();
+            stm.executeUpdate(deleteMediaSql);
+            stm.executeUpdate(deleteBookSql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * @return String
