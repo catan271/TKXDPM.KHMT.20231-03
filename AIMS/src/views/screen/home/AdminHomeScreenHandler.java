@@ -156,6 +156,15 @@ public class AdminHomeScreenHandler extends BaseScreenHandler implements Initial
     @FXML
     private TextField bookLanguage;
 
+    @FXML
+    private Label totalBook;
+
+    @FXML
+    private Label totalCD;
+
+    @FXML
+    private Label totalDVD;
+
     public AdminHomeScreenHandler(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
     }
@@ -167,6 +176,7 @@ public class AdminHomeScreenHandler extends BaseScreenHandler implements Initial
         setBController(new AdminHomeController());
         try {
             showAllMedia();
+            displayTotalMedia();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -180,6 +190,7 @@ public class AdminHomeScreenHandler extends BaseScreenHandler implements Initial
             cdForm.setVisible(false);
             dvdForm.setVisible(false);
             showAllMedia();
+            displayTotalMedia();
         } else if(e.getSource() == bookBtn) {
             homeForm.setVisible(false);
             bookForm.setVisible(true);
@@ -265,6 +276,15 @@ public class AdminHomeScreenHandler extends BaseScreenHandler implements Initial
         bookPubDate.getEditor().clear(); // Clear the date picker text field
         bookPages.clear();
         bookLanguage.clear();
+    }
+
+    public void displayTotalMedia() throws SQLException {
+        int totalBookCount = getBController().getCountMedia("book");
+        int totalCDCount = getBController().getCountMedia("cd");
+        int totalDVDCount = getBController().getCountMedia("dvd");
+        totalBook.setText(String.valueOf(totalBookCount));
+        totalCD.setText(String.valueOf(totalCDCount));
+        totalDVD.setText(String.valueOf(totalDVDCount));
     }
 
 //    @FXML

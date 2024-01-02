@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="700.0" prefWidth="232.0" style="-fx-background-color: #ccebff;">
          <children>
@@ -60,7 +68,7 @@
          <children>
             <AnchorPane fx:id="homeForm" layoutX="9.0" layoutY="9.0" prefHeight="715.0" prefWidth="1115.0" style="-fx-border-color: gray;" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="9.0">
                <children>
-                  <TableView fx:id="mediaTableView" layoutX="12.0" layoutY="12.0" prefHeight="666.0" prefWidth="1089.0">
+                  <TableView fx:id="mediaTableView" layoutX="12.0" layoutY="12.0" prefHeight="428.0" prefWidth="1089.0">
                     <columns>
                       <TableColumn fx:id="mediaIDCol" prefWidth="120.0" text="Media ID" />
                       <TableColumn fx:id="mediaTypeCol" prefWidth="151.0" text="Type" />
@@ -71,6 +79,52 @@
                         <TableColumn fx:id="mediaQuantityCol" prefWidth="159.0" text="Quantity" />
                     </columns>
                   </TableView>
+                  <AnchorPane layoutX="13.0" layoutY="452.0" prefHeight="213.0" prefWidth="1089.0">
+                     <children>
+                        <AnchorPane layoutY="13.0" prefHeight="187.0" prefWidth="283.0" style="-fx-background-color: linear-gradient(to bottom right, #272b3f, #256b51); -fx-background-radius: 8;" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="806.0" AnchorPane.topAnchor="13.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="88.0" layoutY="143.0" prefHeight="25.0" prefWidth="107.0" text="Total Books" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="totalBook" alignment="CENTER_RIGHT" layoutX="162.0" layoutY="26.0" prefHeight="25.0" prefWidth="107.0" text="20" textFill="WHITE">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="403.0" layoutY="13.0" prefHeight="187.0" prefWidth="283.0" style="-fx-background-color: linear-gradient(to bottom right, #272b3f, #256b51); -fx-background-radius: 8;">
+                           <children>
+                              <Label alignment="CENTER" layoutX="88.0" layoutY="143.0" prefHeight="25.0" prefWidth="107.0" text="Total CDs" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="totalCD" alignment="CENTER_RIGHT" layoutX="162.0" layoutY="14.0" prefHeight="25.0" prefWidth="107.0" text="20" textFill="WHITE">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="806.0" layoutY="13.0" prefHeight="187.0" prefWidth="283.0" style="-fx-background-color: linear-gradient(to bottom right, #272b3f, #256b51); -fx-background-radius: 8;">
+                           <children>
+                              <Label alignment="CENTER" layoutX="88.0" layoutY="143.0" prefHeight="25.0" prefWidth="107.0" text="Total DVDs" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="totalDVD" alignment="CENTER_RIGHT" layoutX="156.0" layoutY="14.0" prefHeight="25.0" prefWidth="107.0" text="20" textFill="WHITE">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="bookForm" layoutX="9.0" layoutY="9.0" prefHeight="705.0" prefWidth="1115.0" style="-fx-border-color: gray;" visible="false" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="9.0">

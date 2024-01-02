@@ -137,6 +137,16 @@ public class Media {
                 + "where id=" + id + ";");
     }
 
+    public int getCountMedia(String type) throws SQLException {
+        int countData = 0;
+        Statement stm = AIMSDB.getConnection().createStatement();
+        ResultSet res = stm.executeQuery("SELECT COUNT(id) FROM Media WHERE type = '" + type + "'");
+        if (res.next()) {
+            countData = res.getInt("COUNT(id)");
+        }
+        return countData;
+    }
+
     /**
      * @return int
      */

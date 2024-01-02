@@ -14,6 +14,10 @@ public class AdminHomeController extends  BaseController {
         return new Media().getAllMedia();
     }
 
+    public int getCountMedia(String type) throws SQLException {
+        return new Media().getCountMedia(type);
+    }
+
     public List getAllBook() throws SQLException {
         return new Book().getAllMedia();
     }
