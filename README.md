@@ -186,6 +186,23 @@ The recommended report structure will have a format as follows:
 
 ---
 
+<details>
+<summary> W15: 12/12/2023~18/12/2023</summary>
+<details>
+<summary>Trần Đức Cảnh</summary>
+<br>
+
+-   Assigned tasks:
+
+    -   Task 1: Design feature - Manage media: Usecase diagrams and Actitivity diagrams
+
+-   Implementation details:
+    -   In project report
+
+</details>
+    
+</details>
+
 ## Pull request template
 
 -   You are required to create a pull request according to these steps:
