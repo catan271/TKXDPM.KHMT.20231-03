@@ -203,6 +203,43 @@ The recommended report structure will have a format as follows:
     
 </details>
 
+---
+
+<details>
+<summary> W15: 19/12/2023~25/12/2023</summary>
+<details>
+<summary>Trần Đức Cảnh</summary>
+<br>
+
+-   Assigned tasks:
+
+    -   Task 1: Design feature - Manage media: Class diagrams and interaction diagrams
+
+-   Implementation details:
+    -   In project report
+
+</details>
+    
+</details>
+
+---
+
+<details>
+<summary> W15: 25/12/2023~01/01/2024</summary>
+<details>
+<summary>Trần Đức Cảnh</summary>
+<br>
+
+-   Assigned tasks:
+
+    -   Task 1: Implement feature - Manage media
+-   Implementation details:
+    -   Pull Request:  [https://github.com/catan271/TKXDPM.KHMT.20231-03/pull/6]() 
+
+</details>
+    
+</details>
+
 ## Pull request template
 
 -   You are required to create a pull request according to these steps:
