@@ -1,6 +1,7 @@
 package views.screen.home;
 
 import common.exception.ViewCartException;
+import controller.AuthenticationController;
 import controller.HomeController;
 import controller.MediaController;
 import controller.ViewCartController;
@@ -45,6 +46,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 
     @FXML
     private ImageView cartImage;
+
+    @FXML
+    private Button loginBtn;
 
     @FXML
     private VBox vboxMedia1;
@@ -116,23 +120,37 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
                 throw new ViewCartException(Arrays.toString(e1.getStackTrace()).replaceAll(", ", "\n"));
             }
         });
+
+        loginBtn.setOnMouseClicked(e -> {
+            LoginScreenHandler loginScreen;
+            try {
+                LOGGER.info("User click to login");
+                loginScreen = new LoginScreenHandler(this.stage, Configs.LOGIN_SCREEN_PATH);
+                loginScreen.setHomeScreenHandler(this);
+                loginScreen.setBController(new AuthenticationController());
+                loginScreen.show();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        });
+
         addMediaHome(this.homeItems);
         addMenuItem(0, "Book", splitMenuBtnSearch);
         addMenuItem(1, "DVD", splitMenuBtnSearch);
         addMenuItem(2, "CD", splitMenuBtnSearch);
 
-        aimsImage.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-            MediaManageScreenHandler mediaManageScreen;
-            try {
-                LOGGER.info("User clicked to view manage button");
-                mediaManageScreen = new MediaManageScreenHandler(this.stage, Configs.MEDIA_MANAGE_SCREEN_PATH);
-                mediaManageScreen.setHomeScreenHandler(this);
-                mediaManageScreen.setBController(new MediaController());
-                mediaManageScreen.show();
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
+//        aimsImage.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+//            MediaManageScreenHandler mediaManageScreen;
+//            try {
+//                LOGGER.info("User clicked to view manage button");
+//                mediaManageScreen = new MediaManageScreenHandler(this.stage, Configs.MEDIA_MANAGE_SCREEN_PATH);
+//                mediaManageScreen.setHomeScreenHandler(this);
+//                mediaManageScreen.setBController(new MediaController());
+//                mediaManageScreen.show();
+//            } catch (IOException ex) {
+//                throw new RuntimeException(ex);
+//            }
+//        });
     }
 
     public void setImage() {

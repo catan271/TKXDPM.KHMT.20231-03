@@ -12,6 +12,7 @@ import views.screen.manage.media.MediaManageScreenHandler;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ManageScreenHandler extends BaseScreenHandler implements Initializable {
@@ -59,4 +60,5 @@ public class ManageScreenHandler extends BaseScreenHandler implements Initializa
             e1.printStackTrace();
         }
     }
+
 }
