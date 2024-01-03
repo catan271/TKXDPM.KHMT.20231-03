@@ -80,6 +80,19 @@
                         </Pane>
                     </children>
                 </VBox>
+                <VBox prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <AnchorPane prefHeight="102.0" prefWidth="110.0">
+                            <children>
+                                <Button fx:id="loginBtn" layoutX="-56.0" layoutY="26.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="124.0" style="-fx-cursor: hand;" text="Login">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </VBox>
             </children>
         </HBox>
         <HBox fx:id="hboxMedia" layoutX="24.0" layoutY="123.0" prefHeight="629.0" prefWidth="1283.0">
