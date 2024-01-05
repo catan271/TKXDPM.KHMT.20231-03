@@ -23,7 +23,7 @@ CREATE TABLE "aims"."CD"
     "artist"       VARCHAR(45)         NOT NULL,
     "recordLabel"  VARCHAR(45)         NOT NULL,
     "musicType"    VARCHAR(45)         NOT NULL,
-    "releasedDate" DATE,
+    "releasedDate" DATETIME            NOT NULL,
     CONSTRAINT "fk_cd_media"
         FOREIGN KEY ("id")
             REFERENCES "Media" ("id")
@@ -59,21 +59,21 @@ CREATE TABLE "aims"."DVD"
 );
 CREATE TABLE "aims"."Order"
 (
-    "id"           INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    "name"        VARCHAR(45) NOT NULL,
-    "province"        VARCHAR(45) NOT NULL,
-    "address"      VARCHAR(45) NOT NULL,
-    "phone"        VARCHAR(45) NOT NULL,
-    "shipping_fee" INTEGER     NOT NULL
+    "id"            INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "name"          VARCHAR(45) NOT NULL,
+    "province"      VARCHAR(45) NOT NULL,
+    "address"       VARCHAR(45) NOT NULL,
+    "phone"         VARCHAR(45) NOT NULL,
+    "shipping_fee"  INTEGER     NOT NULL
 );
 CREATE TABLE "aims"."Shipping"
 (
-    "id"           INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    "shipType"        INTEGER NOT NULL,
-    "deliveryInstruction"        VARCHAR(255) NOT NULL,
-    "shipmentDetail"      VARCHAR(255) NOT NULL,
-    "deliveryTime"        VARCHAR(255) NOT NULL,
-    "orderID" INTEGER     NOT NULL,
+    "id"                    INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "shipType"              INTEGER      NOT NULL,
+    "deliveryInstruction"   VARCHAR(255) NOT NULL,
+    "shipmentDetail"        VARCHAR(255) NOT NULL,
+    "deliveryTime"          VARCHAR(255) NOT NULL,
+    "orderID"               INTEGER      NOT NULL,
     CONSTRAINT "fk_ordermedia_order"
         FOREIGN KEY ("orderID")
             REFERENCES "Order" ("id")
@@ -104,4 +104,13 @@ CREATE TABLE "aims"."Transaction"
             REFERENCES "Order" ("id")
 );
 CREATE INDEX "aims"."Transaction.fk_transaction_order_idx" ON PaymentTransaction ("orderID");
+CREATE TABLE "aims"."User"
+(
+    "id"                    INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "name"                  VARCHAR(255) NOT NULL,
+    "email"                 VARCHAR(255) NOT NULL,
+    "address"               VARCHAR(255) NOT NULL,
+    "phone"                 VARCHAR(255) NOT NULL,
+    "encrypted_password"    VARCHAR(255) NOT NULL,
+);
 COMMIT;
