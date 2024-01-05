@@ -24,7 +24,11 @@ public class PaymentTransaction {
         this.amount = amount;
         this.createdAt = createdAt;
     }
-    
+
+    public PaymentTransaction() {
+
+    }
+
     public String getErrorCode() {
         return errorCode;
     }
@@ -45,6 +49,24 @@ public class PaymentTransaction {
 
             preparedStatement.executeUpdate();
         }
+    }
+
+    public int checkPaymentByOrderId(int orderId) throws SQLException {
+        int count = 0;
+
+        String query = "SELECT COUNT(*) FROM PaymentTransaction WHERE orderID = ?";
+
+        try (PreparedStatement preparedStatement = AIMSDB.getConnection().prepareStatement(query)) {
+            preparedStatement.setInt(1, orderId);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    count = resultSet.getInt(1);
+                }
+            }
+        }
+
+        return count;
     }
 
 }

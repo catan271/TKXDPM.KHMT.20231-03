@@ -139,18 +139,18 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         addMenuItem(1, "DVD", splitMenuBtnSearch);
         addMenuItem(2, "CD", splitMenuBtnSearch);
 
-//        aimsImage.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-//            MediaManageScreenHandler mediaManageScreen;
-//            try {
-//                LOGGER.info("User clicked to view manage button");
-//                mediaManageScreen = new MediaManageScreenHandler(this.stage, Configs.MEDIA_MANAGE_SCREEN_PATH);
-//                mediaManageScreen.setHomeScreenHandler(this);
-//                mediaManageScreen.setBController(new MediaController());
-//                mediaManageScreen.show();
-//            } catch (IOException ex) {
-//                throw new RuntimeException(ex);
-//            }
-//        });
+        aimsImage.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            MediaManageScreenHandler mediaManageScreen;
+            try {
+                LOGGER.info("User clicked to view manage button");
+                mediaManageScreen = new MediaManageScreenHandler(this.stage, Configs.MEDIA_MANAGE_SCREEN_PATH);
+                mediaManageScreen.setHomeScreenHandler(this);
+                mediaManageScreen.setBController(new MediaController());
+                mediaManageScreen.show();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
     }
 
     public void setImage() {
