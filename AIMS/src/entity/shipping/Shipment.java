@@ -42,6 +42,7 @@ public class Shipment {
 
     public Shipment(int shipType, String deliveryInstruction, String shipmentDetail, String deliveryTime) {
         super();
+        this.shipType = shipType;
         if (shipType == utils.Configs.PLACE_RUSH_ORDER) {
             this.deliveryInstruction = deliveryInstruction;
             this.shipmentDetail = shipmentDetail;

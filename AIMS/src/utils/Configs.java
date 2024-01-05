@@ -32,6 +32,8 @@ public class Configs {
     public static final String POPUP_PATH = "/views/fxml/popup.fxml";
     public static final String DELIVERY_METHODS_PATH = "/views/fxml/delivery_methods_form.fxml";
     public static final String MEDIA_MANAGE_SCREEN_PATH = "/views/fxml/media_manage.fxml";
+    public static final String ORDER_MANAGE_SCREEN_PATH = "/views/fxml/order_manage.fxml";
+    public static final String DETAIL_ORDER_SCREEN_PATH = "/views/fxml/detail_order.fxml";
     public static final String BOOK_FORM_SCREEN_PATH = "/views/fxml/book_form.fxml";
     public static final String DVD_FORM_SCREEN_PATH = "/views/fxml/dvd_form.fxml";
     public static final String CD_FORM_SCREEN_PATH = "/views/fxml/cd_form.fxml";

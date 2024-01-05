@@ -48,6 +48,9 @@ public class PlaceOrderController extends BaseController {
     public Invoice createInvoice(Order order) {
 
         order.createOrderEntity();
+        order.getlstOrderMedia().forEach(orderMedia -> {
+            orderMedia.createOrderMediaEntity(orderMedia.getMedia().getId(), order.getId(), orderMedia.getPrice(), orderMedia.getQuantity());
+        });
         return new Invoice(order);
     }
 
