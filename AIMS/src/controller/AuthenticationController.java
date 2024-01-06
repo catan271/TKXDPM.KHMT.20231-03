@@ -20,7 +20,7 @@ public class AuthenticationController extends BaseController {
 //        LOGGER.info(email);
 //        LOGGER.info(Utils.md5(password));
         try {
-            User user = this.authenticate(email, Utils.md5(password));
+            User user = new User().authenticate(email, Utils.md5(password));
             // Log user details
             if (Objects.isNull(user)) throw new FailLoginException();
 //            SessionInformation.mainUser = user;
@@ -30,25 +30,6 @@ public class AuthenticationController extends BaseController {
         }
     }
 
-    public User authenticate(String email, String encryptedPassword) throws SQLException {
-        String sql = "SELECT * FROM User " +
-                "WHERE email = '" + email + "' AND encrypted_password = '" + encryptedPassword + "'";
-        LOGGER.info(sql);
-        Statement stm = AIMSDB.getConnection().createStatement();
-        ResultSet res = stm.executeQuery(sql);
-        if(res.next()) {
-            LOGGER.info("User Name: " + res.getString("name"));
-            return new User(
-                    res.getInt("id"),
-                    res.getString("name"),
-                    res.getString("email"),
-                    res.getString("address"),
-                    res.getString("phone")
-            );
-        } else {
-            throw new SQLException();
-        }
-    }
 
 //    public void logout() {
 //        SessionInformation.mainUser = null;
