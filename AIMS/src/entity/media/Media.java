@@ -229,4 +229,14 @@ public class Media {
                 ", imageURL='" + imageURL + "'" +
                 "}";
     }
+
+    public void updateMediaQuantity(int mediaId, int newQuantity) {
+        try (PreparedStatement preparedStatement = AIMSDB.getConnection().prepareStatement("UPDATE Media SET quantity = ? WHERE id = ?")) {
+            preparedStatement.setInt(1, newQuantity);
+            preparedStatement.setInt(2, mediaId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

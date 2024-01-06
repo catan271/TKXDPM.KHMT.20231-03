@@ -1,7 +1,9 @@
 package views.screen.manage.order;
 
 import controller.ManageOrderController;
+import entity.media.Media;
 import entity.order.Order;
+import entity.order.OrderMedia;
 import entity.shipping.Shipment;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -21,6 +23,7 @@ import utils.Configs;
 import utils.Utils;
 import views.screen.home.MediaHandler;
 import views.screen.manage.ManageScreenHandler;
+import views.screen.popup.PopupScreen;
 
 import java.awt.*;
 import java.io.IOException;
@@ -102,7 +105,7 @@ public class OrderManageScreenHandler extends ManageScreenHandler implements Ini
             String shipType = shipment.getShipType() == 1 ? "Rush Delivery" : "Standard Delivery";
 
             // Log shipType
-            LOGGER.info("ShipType for Order ID " + order.getId() + ": " + shipType);
+//            LOGGER.info("ShipType for Order ID " + order.getId() + ": " + shipType);
 
             return new ReadOnlyObjectWrapper<>(shipType);
         });
@@ -144,16 +147,30 @@ public class OrderManageScreenHandler extends ManageScreenHandler implements Ini
 
             @Override
             protected void updateItem(Order order, boolean empty) {
-//                super.updateItem(order, empty);
-//                LOGGER.info(order.getAddress());
                 if (empty) {
                     setGraphic(null);
                 } else {
                     HBox box = new HBox(10, approveButton, refuseButton, viewButton);
 
+                    boolean disabled = "Approve".equals(order.getStatus()) || "Refuse".equals(order.getStatus());
+                    approveButton.setDisable(disabled);
+                    refuseButton.setDisable(disabled);
+
                     approveButton.setOnAction(e -> {
-                        updateOrderStatus(order.getId(), "Approve");
-                        openOrderManage();
+                        try {
+//                            LOGGER.info(String.valueOf(checkMediaQuantities(order.getId())));
+                            if(checkMediaQuantities(order.getId())) {
+                                updateOrderStatus(order.getId(), "Approve");
+                                openOrderManage();
+                            } else {
+                                PopupScreen.error("The quantity of media is not enough");
+                            }
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+
                     });
                     refuseButton.setOnAction(e -> {
                         updateOrderStatus(order.getId(), "Refuse");
@@ -176,7 +193,25 @@ public class OrderManageScreenHandler extends ManageScreenHandler implements Ini
     }
 
     private void updateOrderStatus(int id, String status) {
-        getBController().updateOrderStatus(id, status);
+        if ("Approve".equalsIgnoreCase(status)) {
+            // Update the order status
+            getBController().updateOrderStatus(id, status);
+
+            Order order = getBController().getOrderById(id);
+            List<OrderMedia> listOrderMedia = order.getlstOrderMedia();
+            // Update the media quantities
+            for (OrderMedia orderMedia : listOrderMedia) {
+                Media media = orderMedia.getMedia();
+                int requestedQuantity = orderMedia.getQuantity();
+
+                // Reduce the media quantity in the database
+                int newQuantity = media.getQuantity() - requestedQuantity;
+                getBController().updateMediaQuantity(media.getId(), newQuantity);
+            }
+
+        } else {
+            getBController().updateOrderStatus(id, status);
+        }
     }
 
     private void openDetailOrder(int id) throws IOException, SQLException {
@@ -185,5 +220,24 @@ public class OrderManageScreenHandler extends ManageScreenHandler implements Ini
         detailOrderScreen.showDetailOrder();
         detailOrderScreen.show();
 //
+    }
+
+    private boolean checkMediaQuantities(int orderId) throws SQLException {
+        Order order = getBController().getOrderById(orderId);
+        List<OrderMedia> listOrderMedia = order.getlstOrderMedia();
+
+        for (OrderMedia orderMedia : listOrderMedia) {
+            Media media = orderMedia.getMedia();
+            int requestedQuantity = orderMedia.getQuantity();
+            LOGGER.info("Number Requested" + String.valueOf(requestedQuantity));
+            LOGGER.info("Number Media" + String.valueOf(media.getQuantity()));
+
+            // Check if the requested quantity exceeds the available quantity
+            if (requestedQuantity > media.getQuantity()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
