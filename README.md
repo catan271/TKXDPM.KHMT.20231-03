@@ -219,6 +219,19 @@ The recommended report structure will have a format as follows:
     -   In project report
 
 </details>
+
+<details>
+<summary>Lại Trọng Chiến</summary>
+<br>
+
+-   Assigned tasks:
+
+    -   Task 1: Design feature - Login, order manage
+
+-   Implementation details:
+    -  [https://github.com/catan271/TKXDPM.KHMT.20231-03/pull/12]()
+
+</details>
     
 </details>
 
@@ -236,6 +249,18 @@ The recommended report structure will have a format as follows:
 -   Implementation details:
     -   Pull Request:  [https://github.com/catan271/TKXDPM.KHMT.20231-03/pull/6]() 
 
+</details>
+
+<details>
+<summary>Lại Trọng Chiến</summary>
+<br>
+
+-   Assigned tasks:
+
+    -   Task 1: Implement feature - Login, order manage
+-   Implementation details:
+    -   Pull Request:  [https://github.com/catan271/TKXDPM.KHMT.20231-03/pull/10]() 
+    -   Pull Request:  [https://github.com/catan271/TKXDPM.KHMT.20231-03/pull/11]() 
 </details>
     
 </details>
