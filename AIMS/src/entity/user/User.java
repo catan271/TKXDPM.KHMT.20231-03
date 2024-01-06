@@ -1,5 +1,11 @@
 package entity.user;
 
+import entity.db.AIMSDB;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class User {
 
     private int id;
@@ -7,13 +13,40 @@ public class User {
     private String email;
     private String address;
     private String phone;
+    private String encrypted_password;
 
-    public User(int id, String name, String email, String address, String phone) {
+    public User(int id, String name, String email, String address, String phone, String encrypted_password) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.address = address;
         this.phone = phone;
+        this.encrypted_password = encrypted_password;
+    }
+
+    public User() {
+
+    }
+
+    public User authenticate(String email, String encryptedPassword) throws SQLException {
+        String sql = "SELECT * FROM User " +
+                "WHERE email = '" + email + "' AND encrypted_password = '" + encryptedPassword + "'";
+//        LOGGER.info(sql);
+        Statement stm = AIMSDB.getConnection().createStatement();
+        ResultSet res = stm.executeQuery(sql);
+        if(res.next()) {
+//            LOGGER.info("User Name: " + res.getString("name"));
+            return new User(
+                    res.getInt("id"),
+                    res.getString("name"),
+                    res.getString("email"),
+                    res.getString("address"),
+                    res.getString("phone"),
+                    res.getString(("encrypted_password"))
+            );
+        } else {
+            throw new SQLException();
+        }
     }
 
     // override toString method
