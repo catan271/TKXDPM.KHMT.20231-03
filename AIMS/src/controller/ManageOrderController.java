@@ -1,5 +1,6 @@
 package controller;
 
+import entity.media.Media;
 import entity.order.Order;
 import entity.payment.PaymentTransaction;
 
@@ -21,5 +22,9 @@ public class ManageOrderController extends  BaseController {
 
     public void updateOrderStatus(int id, String status) {
         new Order().updateOrderStatus(id, status);
+    }
+
+    public void updateMediaQuantity(int mediaId, int newQuantity) {
+        new Media().updateMediaQuantity(mediaId, newQuantity);
     }
 }

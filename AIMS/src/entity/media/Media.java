@@ -68,6 +68,7 @@ public class Media {
         title = res.getString("title");
         category = res.getString("category");
         price = res.getInt("price");
+        value = res.getInt("value");
         quantity = res.getInt("quantity");
         imageURL = res.getString("imageUrl");
         type = res.getString("type");
@@ -227,5 +228,15 @@ public class Media {
                 ", type='" + type + "'" +
                 ", imageURL='" + imageURL + "'" +
                 "}";
+    }
+
+    public void updateMediaQuantity(int mediaId, int newQuantity) {
+        try (PreparedStatement preparedStatement = AIMSDB.getConnection().prepareStatement("UPDATE Media SET quantity = ? WHERE id = ?")) {
+            preparedStatement.setInt(1, newQuantity);
+            preparedStatement.setInt(2, mediaId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
