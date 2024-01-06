@@ -25,11 +25,6 @@
                                                 <Font name="System Bold" size="16.0" />
                                             </font>
                                         </Button>
-                                        <Button fx:id="customerManage" mnemonicParsing="false" prefHeight="33.0" prefWidth="228.0" style="-fx-cursor: hand;" text="Customer">
-                                            <font>
-                                                <Font name="System Bold" size="16.0" />
-                                            </font>
-                                        </Button>
                                     </children>
                                 </VBox>
                                 <Button fx:id="backHome" layoutX="7.0" layoutY="671.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="215.0" style="-fx-cursor: hand;" text="Log out" />

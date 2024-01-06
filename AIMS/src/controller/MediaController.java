@@ -33,4 +33,8 @@ public class MediaController extends BaseController {
     public void deleteMediaById(int id) throws SQLException {
         media.delete(id);
     }
+
+    public Book getBookMediaById(int id) throws SQLException {
+        return new Book().getMediaById(id);
+    }
 }

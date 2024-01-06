@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import utils.Configs;
 import utils.Utils;
 import views.screen.manage.ManageScreenHandler;
+import views.screen.manage.media.detail.BookDetailScreenHandler;
 import views.screen.manage.media.form.BookFormScreenHandler;
 import views.screen.manage.media.form.CDFormScreenHandler;
 import views.screen.manage.media.form.DVDFormScreenHandler;
@@ -118,6 +119,7 @@ public class MediaManageScreenHandler extends ManageScreenHandler implements Ini
         actionsColumn.setCellFactory(param -> new TableCell<Media, Media>() {
             private final Button editButton = new Button("Edit");
             private final Button deleteButton = new Button("Delete");
+            private final Button viewButton = new Button("View");
 
             @Override
             protected void updateItem(Media media, boolean empty) {
@@ -126,7 +128,7 @@ public class MediaManageScreenHandler extends ManageScreenHandler implements Ini
                     return;
                 }
 
-                HBox buttonsHBox = new HBox(editButton, deleteButton);
+                HBox buttonsHBox = new HBox(editButton, deleteButton, viewButton);
 
                 switch (media.getType()) {
                     case BOOK: {
@@ -141,6 +143,10 @@ public class MediaManageScreenHandler extends ManageScreenHandler implements Ini
                             } catch (SQLException ex) {
                                 throw new RuntimeException(ex);
                             }
+                        });
+
+                        viewButton.setOnAction(e -> {
+                            redirectToBookDetail(media.getId());
                         });
                         break;
                     }
@@ -157,6 +163,9 @@ public class MediaManageScreenHandler extends ManageScreenHandler implements Ini
                                 throw new RuntimeException(ex);
                             }
                         });
+                        viewButton.setOnAction(e -> {
+                            redirectToCDDetail(media.getId());
+                        });
                         break;
                     }
                     case DVD: {
@@ -172,6 +181,9 @@ public class MediaManageScreenHandler extends ManageScreenHandler implements Ini
                                 throw new RuntimeException(ex);
                             }
                         });
+                        viewButton.setOnAction(e -> {
+                            redirectToDVDDetail(media.getId());
+                        });
                         break;
                     }
                 }
@@ -185,6 +197,26 @@ public class MediaManageScreenHandler extends ManageScreenHandler implements Ini
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void redirectToBookDetail(int id) {
+        try {
+            BookDetailScreenHandler bookDetailScreen = new BookDetailScreenHandler(this.stage, Configs.BOOK_DETAIL_SCREEN_PATH);
+            bookDetailScreen.setId(id);
+            bookDetailScreen.setBController(bookController);
+            bookDetailScreen.showDetailBook(id);
+            bookDetailScreen.show();
+        } catch (IOException | SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    private void redirectToCDDetail(int id) {
+
+    }
+
+    private void redirectToDVDDetail(int id) {
+
     }
 
     private void redirectToBookForm(int id) {
