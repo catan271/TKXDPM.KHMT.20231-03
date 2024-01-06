@@ -68,6 +68,7 @@ public class Media {
         title = res.getString("title");
         category = res.getString("category");
         price = res.getInt("price");
+        value = res.getInt("value");
         quantity = res.getInt("quantity");
         imageURL = res.getString("imageUrl");
         type = res.getString("type");
