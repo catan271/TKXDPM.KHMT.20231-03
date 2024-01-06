@@ -37,6 +37,7 @@ public class Configs {
     public static final String BOOK_FORM_SCREEN_PATH = "/views/fxml/book_form.fxml";
     public static final String DVD_FORM_SCREEN_PATH = "/views/fxml/dvd_form.fxml";
     public static final String CD_FORM_SCREEN_PATH = "/views/fxml/cd_form.fxml";
+    public static final String BOOK_DETAIL_SCREEN_PATH = "/views/fxml/book_detail.fxml";
     public static final int PLACE_RUSH_ORDER = 1;
     public static final int PALCE_ORDER = 2;
     public static String CURRENCY = "VND";

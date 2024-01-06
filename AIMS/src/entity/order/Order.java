@@ -169,8 +169,6 @@ public class Order {
                     res.getString("deliverySub"),
                     res.getString("dateTime")
             );
-//            LOGGER.info(String.valueOf(shipment.getShipType()));
-//            LOGGER.info(String.valueOf(res.getInt("shipType")));
             order.setShipment(shipment);
             listOrder.add(order);
         }
@@ -214,7 +212,7 @@ public class Order {
                 // Create a list to store OrderMedia objects
                 List<OrderMedia> listOrderMedia = new ArrayList<>();
 
-                String orderMediaQuery = "SELECT mediaID, title, type, imageUrl, OrderMedia.price AS orderMediaPrice, OrderMedia.quantity AS orderMediaQuantity FROM OrderMedia INNER JOIN Media ON OrderMedia.mediaID = Media.id WHERE orderId = ? ORDER BY mediaID";
+                String orderMediaQuery = "SELECT mediaID, title, type, imageUrl, OrderMedia.price AS orderMediaPrice, OrderMedia.quantity AS orderMediaQuantity, Media.quantity AS mediaQuantity FROM OrderMedia INNER JOIN Media ON OrderMedia.mediaID = Media.id WHERE orderId = ? ORDER BY mediaID";
                 try (PreparedStatement orderMediaStatement = AIMSDB.getConnection().prepareStatement(orderMediaQuery)) {
                     orderMediaStatement.setInt(1, id);
                     ResultSet orderMediaRes = orderMediaStatement.executeQuery();
@@ -224,6 +222,7 @@ public class Order {
                         media.setId(orderMediaRes.getInt("mediaID"));
                         media.setTitle(orderMediaRes.getString("title"));
                         media.setType(orderMediaRes.getString("type"));
+                        media.setQuantity(orderMediaRes.getInt("mediaQuantity"));
                         media.setMediaURL(orderMediaRes.getString("imageUrl"));
                         OrderMedia orderMedia = new OrderMedia();
                         orderMedia.setMedia(media);
